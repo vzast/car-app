@@ -1,0 +1,145 @@
+[
+  {
+    "id": 1,
+    "name": "Card One",
+    "info": "This is the first card. It features a classic design with a clean icon, representing the beginning of our card series.",
+    "img": "https://cdn-icons-png.flaticon.com/128/1743/1743600.png",
+    "development": "IT",
+    "details": "Detailed information about Card One, including its significance and history.",
+    "date": "2024-01-01",
+    "author": "John Doe",
+    "category": "Introduction"
+  },
+  {
+    "id": 2,
+    "name": "Card Two",
+    "info": "This is the second card. It includes a modern icon and symbolizes progress in our collection of cards.",
+    "img": "https://cdn-icons-png.flaticon.com/128/2012/2012000.png",
+    "development": "Building",
+    "details": "Detailed information about Card Two, highlighting its role in the development phase.",
+    "date": "2024-02-01",
+    "author": "Jane Smith",
+    "category": "Progress"
+  },
+  {
+    "id": 3,
+    "name": "Card Three",
+    "info": "This is the third card. It features a dynamic icon, representing innovation and the next step in our card series.",
+    "img": "https://cdn-icons-png.flaticon.com/128/9162/9162843.png",
+    "development": "IT",
+    "details": "Detailed information about Card Three, including its innovative features and impact.",
+    "date": "2024-03-01",
+    "author": "Alice Johnson",
+    "category": "Innovation"
+  },
+  {
+    "id": 4,
+    "name": "Card Four",
+    "info": "This is the fourth card. It has a unique design with a distinctive icon, reflecting a milestone in our series.",
+    "img": "https://cdn-icons-png.flaticon.com/128/14163/14163392.png",
+    "development": "Building",
+    "details": "Detailed information about Card Four, marking a significant milestone in the series.",
+    "date": "2024-04-01",
+    "author": "Bob Brown",
+    "category": "Milestone"
+  },
+  {
+    "id": 5,
+    "name": "Card Five",
+    "info": "This is the fifth card. It showcases a bold icon and marks a significant achievement in our card collection.",
+    "img": "https://cdn-icons-png.flaticon.com/128/14163/14163392.png",
+    "development": "IT",
+    "details": "Detailed information about Card Five, focusing on its achievement and impact.",
+    "date": "2024-05-01",
+    "author": "Carol White",
+    "category": "Achievement"
+  },
+  {
+    "id": 6,
+    "name": "Card Six",
+    "info": "This is the sixth card. It includes an eye-catching icon, representing the culmination of our initial card designs.",
+    "img": "https://cdn-icons-png.flaticon.com/128/14163/14163392.png",
+    "development": "Building",
+    "details": "Detailed information about Card Six, summarizing the culmination of initial designs.",
+    "date": "2024-06-01",
+    "author": "Dave Black",
+    "category": "Culmination"
+  },
+  {
+    "id": 7,
+    "name": "Card Seven",
+    "info": "This is the seventh card. It features a vibrant icon, symbolizing the continuation of our evolving card series.",
+    "img": "https://cdn-icons-png.flaticon.com/128/590/590685.png",
+    "development": "IT",
+    "details": "Detailed information about Card Seven, highlighting its role in the evolving series.",
+    "date": "2024-07-01",
+    "author": "Eva Green",
+    "category": "Evolution"
+  },
+  {
+    "id": 8,
+    "name": "Card Eight",
+    "info": "This is the eighth card. It has a modern icon, representing a new chapter in our collection of cards.",
+    "img": "https://cdn-icons-png.flaticon.com/128/2232/2232688.png",
+    "development": "Building",
+    "details": "Detailed information about Card Eight, representing a new chapter in the collection.",
+    "date": "2024-08-01",
+    "author": "Frank Blue",
+    "category": "New Chapter"
+  },
+  {
+    "id": 9,
+    "name": "Card Nine",
+    "info": "This is the ninth card. It features a sleek icon, embodying the latest design trends in our card series.",
+    "img": "https://cdn-icons-png.flaticon.com/128/2919/2919600.png",
+    "development": "IT",
+    "details": "Detailed information about Card Nine, focusing on the latest design trends.",
+    "date": "2024-09-01",
+    "author": "Grace Yellow",
+    "category": "Trends"
+  },
+  {
+    "id": 10,
+    "name": "Card Ten",
+    "info": "This is the tenth card. It features a new design and icon, representing a fresh approach in our series.",
+    "img": "https://cdn-icons-png.flaticon.com/128/2921/2921222.png",
+    "development": "Building",
+    "details": "Detailed information about Card Ten, showcasing a fresh approach in the series.",
+    "date": "2024-10-01",
+    "author": "Hank Red",
+    "category": "Fresh Approach"
+  },
+  {
+    "id": 11,
+    "name": "Card Eleven",
+    "info": "This is the eleventh card. It has a modern design and symbolizes innovation in our series.",
+    "img": "https://cdn-icons-png.flaticon.com/128/2921/2921222.png",
+    "development": "IT",
+    "details": "Detailed information about Card Eleven, symbolizing innovation in the series.",
+    "date": "2024-11-01",
+    "author": "Ivy Purple",
+    "category": "Innovation"
+  },
+  {
+    "id": 12,
+    "name": "Card Twelve",
+    "info": "This is the twelfth card. It represents the culmination of our design efforts with a unique icon.",
+    "img": "https://cdn-icons-png.flaticon.com/128/2921/2921222.png",
+    "development": "Building",
+    "details": "Detailed information about Card Twelve, highlighting the culmination of design efforts.",
+    "date": "2024-12-01",
+    "author": "Jack Orange",
+    "category": "Culmination"
+  },
+  {
+    "id": 13,
+    "name": "Card Twelve",
+    "info": "This is the twelfth card. It represents the culmination of our design efforts with a unique icon.",
+    "img": "https://cdn-icons-png.flaticon.com/128/2921/2921222.png",
+    "development": "Building",
+    "details": "Detailed information about Card Twelve, highlighting the culmination of design efforts.",
+    "date": "2024-12-01",
+    "author": "Jack Orange",
+    "category": "Culmination"
+  }
+]
