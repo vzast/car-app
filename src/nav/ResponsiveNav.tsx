@@ -155,6 +155,11 @@ const ResponsiveNav = () => {
     }
   }, [isNavVisible]);
 
+  const handleNavLinkClick = useCallback(() => {
+    setIsNavVisible(false);
+    setIsButtonToggled(false);
+  }, []);
+
   useEffect(() => {
     if (!isNavVisible) {
       setIsButtonToggled(false);
@@ -184,25 +189,39 @@ const ResponsiveNav = () => {
       </TogglerButton>
       <NavItems isVisible={isNavVisible}>
         <NavItem>
-          <NavLink to="/">მთავარი</NavLink>
+          <NavLink to="/" onClick={handleNavLinkClick}>
+            მთავარი
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/services">სერვისები</NavLink>
+          <NavLink to="/services" onClick={handleNavLinkClick}>
+            სერვისები
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/about">ჩვენ შესახებ</NavLink>
+          <NavLink to="/about" onClick={handleNavLinkClick}>
+            ჩვენ შესახებ
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/partners">პარტნიორები</NavLink>
+          <NavLink to="/partners" onClick={handleNavLinkClick}>
+            პარტნიორები
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/gallery">ფოტო გალერეა</NavLink>
+          <NavLink to="/gallery" onClick={handleNavLinkClick}>
+            ფოტო გალერეა
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/blog">ბლოგი</NavLink>
+          <NavLink to="/blog" onClick={handleNavLinkClick}>
+            ბლოგი
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/contact">კონტაქტი</NavLink>
+          <NavLink to="/contact" onClick={handleNavLinkClick}>
+            კონტაქტი
+          </NavLink>
         </NavItem>
       </NavItems>
     </Navbar>

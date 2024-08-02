@@ -7,18 +7,14 @@ import AboutUs from "./pages/About/Index";
 import Contact from "./pages/contact/Index";
 import Partners from "./pages/partners/Index";
 import ServiceDetail from "./pages/services/ServiceDetail";
-import StartOfPage from "./location/StarOfPage";
 import NotFound from "./error/NotFound";
+import ScrollToTop from "./location/StarOfPage";
 
 function App() {
   return (
     <>
-      <StartOfPage />
       <Nav />
-      <br />
-      <br />
-      <br />
-      <br />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />

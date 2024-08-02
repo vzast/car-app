@@ -100,7 +100,7 @@ const Services: React.FC = () => {
 
   const fetchCards = useCallback(async () => {
     try {
-      const response = await fetch("/companyService.json");
+      const response = await fetch("/car-app/companyService.json");
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

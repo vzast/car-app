@@ -28,7 +28,8 @@ const ServiceDetail: React.FC = () => {
       if (id === undefined) return;
 
       try {
-        const response = await fetch("/companyService.json");
+        const response = await fetch("/car-app/companyService.json");
+        console.log(response);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -44,7 +45,6 @@ const ServiceDetail: React.FC = () => {
         setLoading(false);
       }
     };
-
     fetchService();
   }, [id]);
 

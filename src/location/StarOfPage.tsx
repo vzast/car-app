@@ -1,13 +1,18 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const StartOfPage = () => {
+const ScrollToTop = () => {
   const { pathname } = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]); 
-  
+    const scrollTimeout = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100); 
+
+    return () => clearTimeout(scrollTimeout); 
+  }, [pathname]);
+
   return null;
 };
 
-export default StartOfPage;
+export default ScrollToTop;

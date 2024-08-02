@@ -103,7 +103,7 @@ const Partners: React.FC = () => {
 
   const fetchPartners = useCallback(async () => {
     try {
-      const response = await fetch("/companyPartners.json");
+      const response = await fetch("/car-app/companyPartners.json");
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
