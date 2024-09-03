@@ -48,22 +48,25 @@ const Platform: React.FC = () => {
     {
       id: 1,
       name: "name1",
-      img: "https://cdn-icons-png.flaticon.com/128/547/547426.png",
-      imageUrl: "https://via.placeholder.com/150",
+      img: "https://cdn-icons-png.flaticon.com/128/10851/10851040.png",
+      imageUrl:
+        "https://securedroofingandsolar.com/wp-content/uploads/2024/02/solar-panels-wood-house.webp",
       description: "This is the description for button 1.",
     },
     {
       id: 2,
       name: "name2",
-      img: "https://cdn-icons-png.flaticon.com/128/547/547426.png",
-      imageUrl: "https://via.placeholder.com/150",
+      img: "https://cdn-icons-png.flaticon.com/128/10276/10276295.png",
+      imageUrl:
+        "https://exbroit.com/wp-content/uploads/2023/12/Web-based-application-development-service-1200-x-800.jpg",
       description: "This is the description for button 2.",
     },
     {
       id: 3,
       name: "name3",
-      img: "https://cdn-icons-png.flaticon.com/128/547/547426.png",
-      imageUrl: "https://via.placeholder.com/150",
+      img: "https://cdn-icons-png.flaticon.com/128/1973/1973100.png",
+      imageUrl:
+        "https://www.nydailynews.com/wp-content/uploads/migration/2014/10/30/5IPGIUARKG4UFZIOFJWEAOG7EY.jpg",
       description: "This is the description for button 3.",
     },
   ];
@@ -106,7 +109,7 @@ const Platform: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
           >
             <ChildPlatform key={selectedButton.id} output={selectedButton} />
           </motion.div>

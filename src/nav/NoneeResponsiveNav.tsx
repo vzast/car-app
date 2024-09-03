@@ -1,78 +1,97 @@
-import React from "react";
-import { useTransform, motion, useScroll } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion } from "framer-motion";
+import styled from "styled-components";
 import NavElements from "./NavElements";
-import AnimatedNav from "./AnimatedNav";
+import { useTranslation } from "react-i18next"; 
 
-const NoneResponsiveNav: React.FC = () => {
-  const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [20, 150], [1, 0]);
-  const opacitySecond = useTransform(scrollY, [150, 300], [0, 1]);
+const NavbarContainer = styled(motion.nav)`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+`;
 
-  const iconStyle = {
-    fontSize: "20px",
-    marginRight: "10px",
-    color: "#333",
-    transition: "color 0.3s",
+const NavGroup = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+`;
+
+const NavItems = styled.ul`
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center; /* Align items vertically */
+`;
+
+const NoneResponsiveNav = () => {
+  const { i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const newLanguage = i18n.language === "en" ? "ge" : "en";
+    i18n.changeLanguage(newLanguage);
   };
 
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const controlNavbar = useCallback(() => {
+    if (window.scrollY > lastScrollY) {
+      setShowNavbar(false);
+    } else {
+      setShowNavbar(true);
+    }
+    setLastScrollY(window.scrollY);
+  }, [lastScrollY]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", controlNavbar);
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [controlNavbar]);
+
   return (
-    <>
-      <motion.nav
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          marginTop: "1rem",
-          gap: "10px",
-          opacity,
-        }}
-      >
+    <NavbarContainer
+      style={{
+        transform: showNavbar ? "translateY(0)" : "translateY(-100%)",
+      }}
+    >
+      <NavGroup>
         <img
-          style={{ width: "90px", marginBottom: "20px", pointerEvents: "none" }}
-          src="https://cdn-icons-png.flaticon.com/128/1023/1023757.png"
+          style={{ width: "120px", pointerEvents: "none" }}
+          src="./logo2.png"
           alt="nav-icon"
         />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
+        <NavElements />
+      </NavGroup>
+      <NavItems>
+        <li>
+          <i className="fab fa-facebook-f" style={{ fontSize: "20px" }}></i>
+        </li>
+        <li>
+          <i className="fab fa-instagram" style={{ fontSize: "20px" }}></i>
+        </li>
+        <li>
+          <i className="fab fa-tiktok" style={{ fontSize: "20px" }}></i>
+        </li>
+        <button
+          style={{ marginTop: "-10px", cursor: "pointer" }} 
+          className={"btn btn-outline-info"}
+          onClick={toggleLanguage}
         >
-          <ul
-            style={{
-              display: "flex",
-              gap: "30px",
-              listStyleType: "none",
-              justifyContent: "space-evenly",
-              padding: 0,
-              margin: 0,
-            }}
-          >
-            <li>
-              ტელეფონის ნომრები
-              <div>888-333-111</div>
-            </li>
-            <li>
-              სამუშაო საათები
-              <div>24/7</div>
-            </li>
-            <li  >
-              სოციალური ქსელები
-              <div
-                style={{ display: "flex", gap: "10px", alignItems: "center" }}
-              >
-                <i className="fab fa-facebook-f" style={iconStyle}></i>
-                <i className="fab fa-instagram" style={iconStyle}></i>
-                <i className="fab fa-tiktok" style={iconStyle}></i>
-              </div>
-            </li>
-          </ul>
-          <NavElements />
-        </div>
-      </motion.nav>
-      <AnimatedNav opacitySecond={opacitySecond} />
-    </>
+          {i18n.language === "en" ? "ENG" : "GEO"}
+        </button>
+      </NavItems>
+    </NavbarContainer>
   );
 };
 

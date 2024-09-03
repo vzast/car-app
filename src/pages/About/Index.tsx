@@ -5,6 +5,7 @@ const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
+  margin-top: 150px;
 `;
 
 const Row = styled.div`
@@ -54,7 +55,6 @@ const CardText = styled.p`
   font-size: 1rem;
   color: #555;
 `;
-
 
 const AboutUs = () => {
   return (

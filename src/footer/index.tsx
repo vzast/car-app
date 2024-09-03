@@ -1,13 +1,16 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
+
   const footerStyle: React.CSSProperties = {
     backgroundColor: "#343a40",
     color: "#ffffff",
     padding: "60px 0",
-    marginTop: "200px",
+    marginTop: "150px",
   };
 
   const socialIconsStyle: React.CSSProperties = {
@@ -43,34 +46,37 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-3">
-            <h5 style={footerHeadingStyle}>Company</h5>
+            <h5 style={footerHeadingStyle}>{t("Company")}</h5>
             <p>
-              Leading the industry with innovative tech solutions and
-              exceptional service.
+              {t(
+                "Leading the industry with innovative tech solutions and exceptional service."
+              )}
             </p>
           </div>
           <div className="col-md-3">
-            <h5 style={footerHeadingStyle}>Services</h5>
+            <h5 style={footerHeadingStyle}>{t("Services")}</h5>
             <p>
-              Offering web development, app creation, SEO, consulting, and more.
+              {t(
+                "Offering web development, app creation, SEO, consulting, and more."
+              )}
             </p>
           </div>
           <div className="col-md-3">
-            <h5 style={footerHeadingStyle}>Contact</h5>
+            <h5 style={footerHeadingStyle}>{t("Contact")}</h5>
             <p style={contactInfoStyle}>
-              <i className="fas fa-map-marker-alt"></i> 123 Main Street,
-              Anytown, USA
+              <i className="fas fa-map-marker-alt"></i>{" "}
+              {t("123 Main Street, Anytown, USA")}
             </p>
             <p style={contactInfoStyle}>
-              <i className="fas fa-phone"></i> (123) 456-7890
+              <i className="fas fa-phone"></i> {t("(123) 456-7890")}
             </p>
             <p style={contactInfoStyle}>
-              <i className="fas fa-envelope"></i> email@example.com
+              <i className="fas fa-envelope"></i> {t("email@example.com")}
             </p>
           </div>
           <div className="col-md-3">
-            <h5 style={footerHeadingStyle}>Follow Us</h5>
-            <p>Connect with us on social media for updates and news.</p>
+            <h5 style={footerHeadingStyle}>{t("Follow Us")}</h5>
+            <p>{t("Connect with us on social media for updates and news.")}</p>
             <div>
               <span
                 className="fab fa-facebook-f"
@@ -113,7 +119,10 @@ const Footer: React.FC = () => {
         </div>
         <div className="row mt-4">
           <div className="col text-center">
-            <p>&copy; {currentYear} Your Company. All rights reserved.</p>
+            <p>
+              &copy; {currentYear} {t("Your Company")}.{" "}
+              {t("All rights reserved.")}
+            </p>
           </div>
         </div>
       </div>

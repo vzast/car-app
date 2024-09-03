@@ -1,14 +1,30 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import ServiceCard from "./ServiceCard";
-import ServiceSlider from "./ServiceSlider";
-import NotFound from "../../error/NotFound";
+import { useParams, Link } from "react-router-dom";
+import {
+  Container,
+  Grid,
+  Typography,
+  Card as MuiCard,
+  CardMedia,
+  CardContent,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
+import { teal, grey } from "@mui/material/colors";
+import { useTranslation } from "react-i18next";
+import i18n from "../../multilanguage/i18";
 
-interface ServiceDetailProps {
+interface Service {
   id: number;
   name: string;
-  info: string;
   img: string;
+  info: string;
   development: string;
   details: string;
   date: string;
@@ -16,92 +32,172 @@ interface ServiceDetailProps {
   category: string;
 }
 
+interface ServiceData {
+  [key: string]: {
+    cards: Service[];
+  };
+}
+
 const ServiceDetail: React.FC = () => {
-  const { id } = useParams<{ id: string | undefined }>();
-  const [service, setService] = useState<ServiceDetailProps | null>(null);
-  const [services, setServices] = useState<ServiceDetailProps[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const { id } = useParams<{ id?: string }>();
+  const [service, setService] = useState<Service | null>(null);
+  const [otherServices, setOtherServices] = useState<Service[]>([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchService = async () => {
-      if (id === undefined) return;
+  // Using useTranslation hook for translations
+  const { t } = useTranslation();
 
+  useEffect(() => {
+    const fetchServices = async () => {
       try {
         const response = await fetch("/car-app/companyService.json");
-        console.log(response);
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error(
+            `Network response was not ok: ${response.statusText}`
+          );
         }
-        const data: ServiceDetailProps[] = await response.json();
+        const data: ServiceData = await response.json();
+        const services = data[i18n.language]?.cards || [];
 
-        const foundService = data.find((item) => item.id === parseInt(id, 10));
-        setService(foundService || null);
-        setServices(data.filter((item) => item.id !== parseInt(id, 10)));
+        const currentService = services.find(
+          (item: Service) => item.id === parseInt(id || "", 10)
+        );
+        setService(currentService || null);
+
+        setOtherServices(
+          services.filter((service) => service.id !== parseInt(id || "", 10))
+        );
       } catch (error) {
-        setError("Failed to fetch service");
-        console.error("Failed to fetch service:", error);
+        setError("Failed to fetch services");
+        console.error("Failed to fetch services:", error);
       } finally {
         setLoading(false);
       }
     };
-    fetchService();
-  }, [id]);
 
-  if (loading) return <p className="text-center text-primary">Loading...</p>;
-  if (error) return <p className="text-center text-danger">{error}</p>;
-  if (!service) return <NotFound />;
+    fetchServices();
+  }, [id, i18n.language]);
+  if (loading) return <div>{t("Loading...")}</div>;
+  if (error) return <div>{t("Failed to fetch services")}</div>;
+  if (!service) return <div>{t("No service found")}</div>;
 
   return (
-    <>
-      <div
-        style={{ marginTop: "70px" }}
-        className="container  p-3 bg-light rounded shadow-sm"
-      >
-        <div style={{ marginTop: "30px" }} className="row">
-          <div className="col-md-8 mb-4 mb-md-0">
-            <h1 className="display-5">{service.name}</h1>
-            <img
-              src={service.img}
-              alt={service.name}
-              className="img-fluid rounded mb-3"
-              style={{ maxHeight: "400px", objectFit: "cover" }}
-            />
-            <p className="lead">{service.info}</p>
-            <div className="p-3 bg-white rounded shadow-sm">
-              <h2 className="h4">Details</h2>
-              <p className="mb-1">
-                <strong>Development:</strong> {service.development}
-              </p>
-              <p className="mb-1">
-                <strong>Date:</strong> {service.date}
-              </p>
-              <p className="mb-1">
-                <strong>Author:</strong> {service.author}
-              </p>
-              <p className="mb-1">
-                <strong>Category:</strong> {service.category}
-              </p>
-              <p className="mb-1">
-                <strong>Additional Details:</strong> {service.details}
-              </p>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <ServiceSlider />
-          </div>
-        </div>
-      </div>
-      <div className="container  bg-light rounded shadow-sm">
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-          {services.map((relatedService) => (
-            <div className="col" key={relatedService.id}>
-              <ServiceCard service={relatedService} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
+    <Container sx={{ marginTop: 4 }}>
+      <Grid container spacing={4}>
+        <Grid item md={12}>
+          <MuiCard sx={{ display: "flex", padding: 3, boxShadow: 4 }}>
+            <Grid container spacing={4}>
+              <Grid item md={4}>
+                <CardMedia
+                  component="img"
+                  image={service.img}
+                  alt={service.name}
+                  sx={{ borderRadius: 1, boxShadow: 4, objectFit: "cover" }}
+                />
+              </Grid>
+              <Grid item md={8}>
+                <CardContent>
+                  <Typography variant="h3" color={teal[700]} gutterBottom>
+                    {service.name}
+                  </Typography>
+                  <Typography variant="body1" color={grey[700]} paragraph>
+                    {service.info}
+                  </Typography>
+                  <TableContainer component={Paper} sx={{ boxShadow: 4 }}>
+                    <Table>
+                      <TableHead>
+                        <TableRow>
+                          <TableCell sx={{ fontWeight: "bold" }}>
+                            {t("Attribute")}
+                          </TableCell>
+                          <TableCell sx={{ fontWeight: "bold" }}>
+                            {t("Details")}
+                          </TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        <TableRow>
+                          <TableCell>{t("Development")}</TableCell>
+                          <TableCell>{service.development}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{t("Details")}</TableCell>
+                          <TableCell>{service.details}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{t("Date")}</TableCell>
+                          <TableCell>
+                            {new Date(service.date).toLocaleDateString()}
+                          </TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{t("Author")}</TableCell>
+                          <TableCell>{service.author}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>{t("Category")}</TableCell>
+                          <TableCell>{service.category}</TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </CardContent>
+              </Grid>
+            </Grid>
+          </MuiCard>
+        </Grid>
+
+        <Grid item md={12}>
+          <Typography variant="h5" color={teal[700]} gutterBottom>
+            {t("Other Services")}
+          </Typography>
+          <Grid container spacing={4}>
+            {otherServices.map((otherService) => (
+              <Grid item key={otherService.id} xs={12} sm={6} md={4}>
+                <Link
+                  to={`/service/${otherService.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <MuiCard
+                    sx={{
+                      padding: 2,
+                      boxShadow: 4,
+                      cursor: "pointer",
+                      transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                      "&:hover": {
+                        transform: "scale(1.05)",
+                        boxShadow: 8,
+                      },
+                    }}
+                  >
+                    <CardMedia
+                      component="img"
+                      image={otherService.img}
+                      alt={otherService.name}
+                      sx={{
+                        height: 180,
+                        borderRadius: 1,
+                        objectFit: "cover",
+                        marginBottom: 2,
+                      }}
+                    />
+                    <CardContent>
+                      <Typography variant="h6" color={teal[700]} gutterBottom>
+                        {otherService.name}
+                      </Typography>
+                      <Typography variant="body2" color={grey[600]}>
+                        {otherService.info}
+                      </Typography>
+                    </CardContent>
+                  </MuiCard>
+                </Link>
+              </Grid>
+            ))}
+          </Grid>
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 

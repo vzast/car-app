@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
@@ -74,50 +75,45 @@ const ContactButton = styled.button<{ isActive?: boolean }>`
 `;
 
 const NavElements: React.FC = () => {
-  return (
-    <List>
-      <ListItem>
-        <NavLink
-          to="/"
-          className={({ isActive }) => (isActive ? "active" : "")}
-        >
-          მთავარი
-        </NavLink>
-      </ListItem>
-      <ListItem>
-        <NavLink
-          to="/services"
-          className={({ isActive }) => (isActive ? "active" : "")}
-        >
-          სერვისები
-        </NavLink>
-      </ListItem>
-      <ListItem>
-        <NavLink
-          to="/about"
-          className={({ isActive }) => (isActive ? "active" : "")}
-        >
-          ჩვენ შესახებ
-        </NavLink>
-      </ListItem>
-      <ListItem>
-        <NavLink
-          to="/partners"
-          className={({ isActive }) => (isActive ? "active" : "")}
-        >
-          პარტნიორები
-        </NavLink>
-      </ListItem>
+  const { t } = useTranslation();
 
-      <NavLink
-        to="/contact"
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
-        {({ isActive }) => (
-          <ContactButton isActive={isActive}>კონტაქტი</ContactButton>
-        )}
-      </NavLink>
-    </List>
+  return (
+    <div>
+      <List>
+        <ListItem>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("Welcome to React")}
+          </NavLink>
+        </ListItem>
+        <ListItem>
+          <NavLink
+            to="/services"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("Services")}
+          </NavLink>
+        </ListItem>
+        <ListItem>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {t("About Us")}
+          </NavLink>
+        </ListItem>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          {({ isActive }) => (
+            <ContactButton isActive={isActive}>{t("Contact")}</ContactButton>
+          )}
+        </NavLink>
+      </List>
+    </div>
   );
 };
 

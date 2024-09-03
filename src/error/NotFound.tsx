@@ -1,5 +1,7 @@
+import React from "react";
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   display: flex;
@@ -48,7 +50,8 @@ const Button = styled.button`
   }
 `;
 
-const NotFound = () => {
+const NotFound: React.FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleGoHome = () => {
@@ -58,8 +61,8 @@ const NotFound = () => {
   return (
     <Container>
       <Title>404</Title>
-      <Message>Sorry, the page you are looking for does not exist.</Message>
-      <Button onClick={handleGoHome}>Go to Home</Button>
+      <Message>{t('Sorry, the page you are looking for does not exist.')}</Message>
+      <Button onClick={handleGoHome}>{t('Go to Home')}</Button>
     </Container>
   );
 };

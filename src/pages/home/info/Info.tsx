@@ -1,77 +1,164 @@
 import React from "react";
-import styled from "styled-components";
+import {
+  Box,
+  Typography,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableRow,
+  Paper,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 
-const Container = styled.div`
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  position: relative;
-  overflow: hidden;
-  margin: 20px auto;
-  margin-top: 150px;
-`;
+const Container = styled(Box)(({ theme }) => ({
+  background: "linear-gradient(135deg, #1e3c72, #2a5298)",
+  boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  padding: theme.spacing(8),
+  borderRadius: theme.shape.borderRadius,
+  color: "#fff",
+  margin: theme.spacing(4, "auto"),
+  marginTop: theme.spacing(12),
+  overflow: "hidden",
+}));
 
-const Icon = styled.img`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 100px;
-  height: 100px;
-  opacity: 0.9;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+const IconContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  gap: theme.spacing(4),
+  marginBottom: theme.spacing(6),
+}));
 
-  &:hover {
-    transform: scale(1.15);
-    opacity: 1;
-  }
-`;
+const Icon = styled(Box)(() => ({
+  width: 80,
+  height: 80,
+  color: "#fff",
+  backgroundColor: "#004d99",
+  borderRadius: "50%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+  transition: "box-shadow 0.3s ease",
+}));
 
-const TextContent = styled.div`
-  text-align: center;
-  color: #fff;
-  max-width: 700px;
+const TableWrapper = styled(TableContainer)(({ theme }) => ({
+  maxWidth: 900,
+  width: "100%",
+  marginTop: theme.spacing(6),
+}));
 
-  h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-  }
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  color: "#fff",
+  backgroundColor: "#00274d", 
+  fontWeight: "bold",
+  padding: theme.spacing(2),
+  borderBottom: "1px solid #001f3f",
+}));
 
-  h2 {
-    font-size: 26px;
-    margin-bottom: 20px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
+const StyledTableRow = styled(TableRow)(() => ({
+  backgroundColor: "#f0f4f8", 
+  "&:nth-of-type(even)": {
+    backgroundColor: "#e1e8ed",
+  },
+}));
 
-  p {
-    font-size: 20px;
-    line-height: 1.8;
-    margin: 0;
-    padding: 0;
-  }
-`;
+const AboutUs = styled(Box)(({ theme }) => ({
+  textAlign: "center",
+  marginBottom: theme.spacing(6),
+
+  "& h1": {
+    fontSize: "2.5rem",
+    marginBottom: theme.spacing(2),
+    fontWeight: 700,
+    color: "#ffffff", 
+  },
+
+  "& p": {
+    fontSize: "1.125rem",
+    lineHeight: 1.6,
+    margin: 0,
+    padding: 0,
+    color: "#e0e0e0", 
+  },
+}));
 
 const Info: React.FC = () => {
   return (
     <Container>
-      <Icon
-        src="https://cdn-icons-png.flaticon.com/128/10061/10061737.png"
-        alt="Info Icon"
-      />
-      <TextContent>
-        <h1>Information Title</h1>
-        <h2>Subtitle</h2>
-        <p>
-          This section provides detailed information about the topic. Expand on
-          the context or details to offer a comprehensive overview.
-        </p>
-      </TextContent>
+      <IconContainer>
+        <Icon>
+          <InfoOutlinedIcon fontSize="inherit" />
+        </Icon>
+        <Icon>
+          <HomeOutlinedIcon fontSize="inherit" />
+        </Icon>
+        <Icon>
+          <SettingsOutlinedIcon fontSize="inherit" />
+        </Icon>
+      </IconContainer>
+      <AboutUs>
+        <Typography variant="h1">About Us</Typography>
+        <Typography variant="body1">
+          Our mission is to deliver outstanding technology solutions tailored to
+          your specific needs. We are committed to providing innovative services
+          and exceptional support to help you achieve your objectives.
+        </Typography>
+      </AboutUs>
+      <TableWrapper>
+        <Paper>
+          <Table>
+            <TableBody>
+              <StyledTableRow>
+                <StyledTableCell>Our Mission</StyledTableCell>
+                <TableCell>
+                  To offer superior technology solutions and excellent service
+                  that exceed expectations.
+                </TableCell>
+              </StyledTableRow>
+              <StyledTableRow>
+                <StyledTableCell>Our Vision</StyledTableCell>
+                <TableCell>
+                  To become a leading innovator in technology solutions that drive
+                  client success and growth.
+                </TableCell>
+              </StyledTableRow>
+              <StyledTableRow>
+                <StyledTableCell>Core Values</StyledTableCell>
+                <TableCell>
+                  Integrity, Innovation, Excellence, and Customer Satisfaction.
+                </TableCell>
+              </StyledTableRow>
+            </TableBody>
+          </Table>
+        </Paper>
+      </TableWrapper>
+      <TableWrapper>
+        <Paper>
+          <Table>
+            <TableBody>
+              <StyledTableRow>
+                <StyledTableCell>Service Offered</StyledTableCell>
+                <TableCell>Custom Software Development</TableCell>
+              </StyledTableRow>
+              <StyledTableRow>
+                <StyledTableCell>Expertise</StyledTableCell>
+                <TableCell>Web and Mobile Applications</TableCell>
+              </StyledTableRow>
+              <StyledTableRow>
+                <StyledTableCell>Support</StyledTableCell>
+                <TableCell>24/7 Technical Support</TableCell>
+              </StyledTableRow>
+            </TableBody>
+          </Table>
+        </Paper>
+      </TableWrapper>
     </Container>
   );
 };

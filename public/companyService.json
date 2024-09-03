@@ -1,145 +1,138 @@
-[
-  {
-    "id": 1,
-    "name": "Card One",
-    "info": "This is the first card. It features a classic design with a clean icon, representing the beginning of our card series.",
-    "img": "https://cdn-icons-png.flaticon.com/128/1743/1743600.png",
-    "development": "IT",
-    "details": "Detailed information about Card One, including its significance and history.",
-    "date": "2024-01-01",
-    "author": "John Doe",
-    "category": "Introduction"
+{
+  "en": {
+    "cards": [
+      {
+        "id": 1,
+        "name": "Alarm systems",
+        "info": "secure your place with alarm systems",
+        "img": "./icons/alarm.png",
+        "development": "Building",
+        "details": "Investing in advanced alarm systems and breakage detection is essential for maintaining a secure business environment. These systems work together to protect your property from unauthorized access and accidental damage, providing a comprehensive security solution. Contact us today to discuss how our tailored security solutions can enhance the safety and security of your business."
+      },
+      {
+        "id": 2,
+        "name": "Camera devices",
+        "info": "secure your place with camera systems",
+        "img": "./icons/camera.png",
+        "development": "Building",
+        "details": "In today’s fast-paced world, ensuring the safety and security of your business premises is more critical than ever. One of the most effective ways to protect your assets, employees, and customers is through a well-designed and professionally configured camera surveillance system. Our company specializes in the installation and configuration of advanced security cameras, tailored to meet the specific needs of your business."
+      },
+      {
+        "id": 3,
+        "name": "Desktop Applications",
+        "info": "We can build desktop applications based on your needs",
+        "img": "./icons/deskapp.png",
+        "development": "IT",
+        "details": "Custom desktop applications are essential for businesses that need powerful software solutions for complex tasks and data management. Our expert desktop application development services provide tailored solutions designed to enhance your business operations and productivity. Contact us today to discuss your project and find out how our desktop application development services can benefit your business."
+      },
+      {
+        "id": 4,
+        "name": "Fire prevention",
+        "info": "Prevent your place with our fire prevention systems",
+        "img": "./icons/fire.png",
+        "development": "Building",
+        "details": "Fire is one of the most devastating threats to any business, capable of causing severe damage to property, disrupting operations, and endangering lives. To mitigate this risk, having a robust fire prevention system in place is essential. Our company specializes in the design, installation, and maintenance of advanced fire prevention systems that ensure the safety of your premises and people."
+      },
+      {
+        "id": 5,
+        "name": "Mobile Applications",
+        "info": "We can build mobile applications based on your needs",
+        "img": "./icons/mobile.png",
+        "development": "IT",
+        "details": "Mobile apps are a powerful tool for enhancing customer engagement, improving business operations, and driving growth. By choosing our custom mobile app development services, you’re investing in a solution that is tailored to your specific needs and designed to deliver exceptional results. Contact us today to discuss your app idea and discover how we can help you achieve your business goals through innovative mobile technology."
+      },
+      {
+        "id": 6,
+        "name": "UPS devices",
+        "info": "Secure your systems with our UPS device",
+        "img": "./icons/Screenshot_2024-08-27_200054.png",
+        "development": "Building",
+        "details": "In today's technology-driven world, power interruptions can spell disaster for businesses of all sizes. Whether it's a brief flicker or a prolonged outage, losing power can result in data loss, equipment damage, and significant downtime. That's where an Uninterruptible Power Supply (UPS) system comes into play—a critical safeguard that every business should consider."
+      },
+      {
+        "id": 7,
+        "name": "Solar panels",
+        "info": "Take maximum from with low cost",
+        "img": "./icons/solar.png",
+        "development": "Building",
+        "details": "As the world shifts towards more sustainable energy solutions, solar power has emerged as a leading option for businesses looking to reduce their carbon footprint and energy costs. Solar panels offer a reliable, eco-friendly way to generate electricity, making them an excellent investment for businesses of all sizes. Our company specializes in providing top-quality solar panel solutions that are tailored to meet your specific energy needs."
+      },
+      {
+        "id": 8,
+        "name": "Web applications",
+        "info": "We can build mobile applications based on your needs",
+        "img": "./icons/web.png",
+        "development": "IT",
+        "details": "A well-developed website is a key asset for any business, enhancing customer engagement and driving growth. With our professional web development services, you’ll receive a custom solution that is tailored to your specific needs and designed to achieve your goals. Contact us today to discuss your web development project and discover how we can help elevate your online presence."
+      }
+    ]
   },
-  {
-    "id": 2,
-    "name": "Card Two",
-    "info": "This is the second card. It includes a modern icon and symbolizes progress in our collection of cards.",
-    "img": "https://cdn-icons-png.flaticon.com/128/2012/2012000.png",
-    "development": "Building",
-    "details": "Detailed information about Card Two, highlighting its role in the development phase.",
-    "date": "2024-02-01",
-    "author": "Jane Smith",
-    "category": "Progress"
-  },
-  {
-    "id": 3,
-    "name": "Card Three",
-    "info": "This is the third card. It features a dynamic icon, representing innovation and the next step in our card series.",
-    "img": "https://cdn-icons-png.flaticon.com/128/9162/9162843.png",
-    "development": "IT",
-    "details": "Detailed information about Card Three, including its innovative features and impact.",
-    "date": "2024-03-01",
-    "author": "Alice Johnson",
-    "category": "Innovation"
-  },
-  {
-    "id": 4,
-    "name": "Card Four",
-    "info": "This is the fourth card. It has a unique design with a distinctive icon, reflecting a milestone in our series.",
-    "img": "https://cdn-icons-png.flaticon.com/128/14163/14163392.png",
-    "development": "Building",
-    "details": "Detailed information about Card Four, marking a significant milestone in the series.",
-    "date": "2024-04-01",
-    "author": "Bob Brown",
-    "category": "Milestone"
-  },
-  {
-    "id": 5,
-    "name": "Card Five",
-    "info": "This is the fifth card. It showcases a bold icon and marks a significant achievement in our card collection.",
-    "img": "https://cdn-icons-png.flaticon.com/128/14163/14163392.png",
-    "development": "IT",
-    "details": "Detailed information about Card Five, focusing on its achievement and impact.",
-    "date": "2024-05-01",
-    "author": "Carol White",
-    "category": "Achievement"
-  },
-  {
-    "id": 6,
-    "name": "Card Six",
-    "info": "This is the sixth card. It includes an eye-catching icon, representing the culmination of our initial card designs.",
-    "img": "https://cdn-icons-png.flaticon.com/128/14163/14163392.png",
-    "development": "Building",
-    "details": "Detailed information about Card Six, summarizing the culmination of initial designs.",
-    "date": "2024-06-01",
-    "author": "Dave Black",
-    "category": "Culmination"
-  },
-  {
-    "id": 7,
-    "name": "Card Seven",
-    "info": "This is the seventh card. It features a vibrant icon, symbolizing the continuation of our evolving card series.",
-    "img": "https://cdn-icons-png.flaticon.com/128/590/590685.png",
-    "development": "IT",
-    "details": "Detailed information about Card Seven, highlighting its role in the evolving series.",
-    "date": "2024-07-01",
-    "author": "Eva Green",
-    "category": "Evolution"
-  },
-  {
-    "id": 8,
-    "name": "Card Eight",
-    "info": "This is the eighth card. It has a modern icon, representing a new chapter in our collection of cards.",
-    "img": "https://cdn-icons-png.flaticon.com/128/2232/2232688.png",
-    "development": "Building",
-    "details": "Detailed information about Card Eight, representing a new chapter in the collection.",
-    "date": "2024-08-01",
-    "author": "Frank Blue",
-    "category": "New Chapter"
-  },
-  {
-    "id": 9,
-    "name": "Card Nine",
-    "info": "This is the ninth card. It features a sleek icon, embodying the latest design trends in our card series.",
-    "img": "https://cdn-icons-png.flaticon.com/128/2919/2919600.png",
-    "development": "IT",
-    "details": "Detailed information about Card Nine, focusing on the latest design trends.",
-    "date": "2024-09-01",
-    "author": "Grace Yellow",
-    "category": "Trends"
-  },
-  {
-    "id": 10,
-    "name": "Card Ten",
-    "info": "This is the tenth card. It features a new design and icon, representing a fresh approach in our series.",
-    "img": "https://cdn-icons-png.flaticon.com/128/2921/2921222.png",
-    "development": "Building",
-    "details": "Detailed information about Card Ten, showcasing a fresh approach in the series.",
-    "date": "2024-10-01",
-    "author": "Hank Red",
-    "category": "Fresh Approach"
-  },
-  {
-    "id": 11,
-    "name": "Card Eleven",
-    "info": "This is the eleventh card. It has a modern design and symbolizes innovation in our series.",
-    "img": "https://cdn-icons-png.flaticon.com/128/2921/2921222.png",
-    "development": "IT",
-    "details": "Detailed information about Card Eleven, symbolizing innovation in the series.",
-    "date": "2024-11-01",
-    "author": "Ivy Purple",
-    "category": "Innovation"
-  },
-  {
-    "id": 12,
-    "name": "Card Twelve",
-    "info": "This is the twelfth card. It represents the culmination of our design efforts with a unique icon.",
-    "img": "https://cdn-icons-png.flaticon.com/128/2921/2921222.png",
-    "development": "Building",
-    "details": "Detailed information about Card Twelve, highlighting the culmination of design efforts.",
-    "date": "2024-12-01",
-    "author": "Jack Orange",
-    "category": "Culmination"
-  },
-  {
-    "id": 13,
-    "name": "Card Twelve",
-    "info": "This is the twelfth card. It represents the culmination of our design efforts with a unique icon.",
-    "img": "https://cdn-icons-png.flaticon.com/128/2921/2921222.png",
-    "development": "Building",
-    "details": "Detailed information about Card Twelve, highlighting the culmination of design efforts.",
-    "date": "2024-12-01",
-    "author": "Jack Orange",
-    "category": "Culmination"
+  "ge": {
+    "cards": [
+      {
+        "id": 1,
+        "name": "სიგნალიზაცია",
+        "info": "დაიცავი ტერიტორია ჩვენი სიგნალიზაციის სისტემის საშუალებით",
+        "img": "./icons/alarm.png",
+        "development": "მშენებლობა",
+        "details": "ბარათი ერთის დეტალური ინფორმაცია, მათ შორის მისი მნიშვნელობა და ისტორია."
+      },
+      {
+        "id": 2,
+        "name": "კამერები",
+        "info": "აკონტროლე ტერიტორია 24/7 საათის განმავლობაში",
+        "img": "./icons/camera.png",
+        "development": "მშენებლობა",
+        "details": "ბარათი ორის დეტალური ინფორმაცია, რომელიც ხაზს უსვამს მის როლს განვითარების ფაზაში."
+      },
+      {
+        "id": 3,
+        "name": "დესკტოპ აპლიკაციები",
+        "info": "შეუკვეთე შენივე საჭიროებებზე მორგებული დესკტოპ აპლიკაცია",
+        "img": "./icons/deskapp.png",
+        "development": "IT",
+        "details": "ბარათი სამის დეტალური ინფორმაცია, მათ შორის მისი ინოვაციური თვისებები და გავლენა."
+      },
+      {
+        "id": 4,
+        "name": "ხანძარსაწინააღმდეგო სისტემები",
+        "info": "დაიცავი ჩვენი ტერიტორია ხანძარსაწინააღმდგო სისტემით",
+        "img": "./icons/fire.png",
+        "development": "მშენებლობა",
+        "details": "ბარათი ოთხის დეტალური ინფორმაცია, რომელიც აღნიშნავს სერიის მნიშვნელოვან ეტაპს."
+      },
+      {
+        "id": 5,
+        "name": "მობაილ აპლიკაციები",
+        "info": "შეუკვეთე შენივე საჭიროებებზე მორგებული მობაილ აპლიკაცია",
+        "img": "./icons/mobile.png",
+        "development": "IT",
+        "details": "ბარათი ხუთის დეტალური ინფორმაცია, რომელიც ფოკუსირებულია მის მიღწევასა და გავლენაზე."
+      },
+      {
+        "id": 6,
+        "name": "UPS სისტემები",
+        "info": "დაიცავი შენი მოწყობილობა UPშ სისტემის საშუალებით",
+        "img": "./icons/Screenshot_2024-08-27_200054.png",
+        "development": "მშენებლობა",
+        "details": "ბარათი ექვსის დეტალური ინფორმაცია, რომელიც შეაჯამებს საწყისი დიზაინის ეტაპებს."
+      },
+      {
+        "id": 7,
+        "name": "მზის პანელები",
+        "info": "მიიღე მეტი ენერგია ნაკლები ხარჯით",
+        "img": "./icons/solar.png",
+        "development": "მშენებლობა",
+        "details": "ბარათი შვიდის დეტალური ინფორმაცია, რომელიც ხაზს უსვამს მის როლს სერიის განვითარებაში."
+      },
+      {
+        "id": 8,
+        "name": "საიტებივებსაიტები",
+        "info": "შეუკვეთე შენივე საჭიროებებზე მორგებული მობაილ აპლიკაცია",
+        "img": "./icons/web.png",
+        "development": "IT",
+        "details": "ბარათი რვის დეტალური ინფორმაცია, რომელიც აღნიშნავს ახალი თავის დაწყებას კოლექციაში."
+      }
+    ]
   }
-]
+}

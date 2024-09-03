@@ -1,3 +1,5 @@
+import React from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
@@ -91,15 +93,14 @@ const ContactWrapper = styled.div`
 `;
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation();
   const center: LatLngExpression = [41.736228, 44.722072];
+  
   return (
     <ContactWrapper>
       <Container>
-        <h1>Contact Us</h1>
-        <p>
-          We align leaders around a shared purpose and strategic story that
-          catalyzes their business and brand to take action.
-        </p>
+        <h1>{t("Contact Us")}</h1>
+        <p>{t("We align leaders around a shared purpose and strategic story that catalyzes their business and brand to take action.")}</p>
         <Row>
           <Col
             md={7}
@@ -108,23 +109,23 @@ const Contact: React.FC = () => {
           >
             <img
               src="https://st3.depositphotos.com/9880800/18337/i/450/depositphotos_183377518-stock-photo-business.jpg"
-              alt="Contact"
+              alt={t("Contact")}
               className="contact-image"
             />
           </Col>
           <Col md={5}>
             <Row>
               <Col md={12} className="contact-info">
-                <h4>Business Hours</h4>
-                <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-                <p>Saturday: 10:00 AM - 2:00 PM</p>
-                <p>Sunday: Closed</p>
+                <h4>{t("Business Hours")}</h4>
+                <p>{t("Monday - Friday: 9:00 AM - 5:00 PM")}</p>
+                <p>{t("Saturday: 10:00 AM - 2:00 PM")}</p>
+                <p>{t("Sunday: Closed")}</p>
               </Col>
               <Col md={12} className="contact-info">
-                <h4>Contact Information</h4>
-                <p>Email: info@company.com</p>
-                <p>Phone: +1 234 567 890</p>
-                <p>Address: 123 Business St, City, Country</p>
+                <h4>{t("Contact Information")}</h4>
+                <p>{t("Email: info@company.com")}</p>
+                <p>{t("Phone: +1 234 567 890")}</p>
+                <p>{t("Address: 123 Business St, City, Country")}</p>
               </Col>
             </Row>
           </Col>
@@ -132,7 +133,7 @@ const Contact: React.FC = () => {
         <Row className="mt-4">
           <Col md={12}>
             <div className="contact-info">
-              <h4>Our Location</h4>
+              <h4>{t("Our Location")}</h4>
               <div className="map">
                 <MapContainer
                   center={center}
@@ -144,7 +145,7 @@ const Contact: React.FC = () => {
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                   />
                   <Marker position={center}>
-                    <Popup>Destination Location</Popup>
+                    <Popup>{t("Destination Location")}</Popup>
                   </Marker>
                 </MapContainer>
               </div>

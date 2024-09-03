@@ -11,13 +11,12 @@ const cardVariants = {
 const Card = styled(motion.div)`
   margin: 1rem;
   border-radius: 8px;
-
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   text-align: center;
   padding: 50px;
   transition: transform 0.2s;
-  display:'flex
+
   &:hover {
     transform: translateY(-10px);
   }
@@ -25,6 +24,8 @@ const Card = styled(motion.div)`
 
 const CardImage = styled.img`
   object-fit: cover;
+  width: 100%;
+  border-radius: 8px;
 `;
 
 const CardContent = styled.div`
@@ -35,33 +36,33 @@ const CardTitle = styled.h3`
   font-size: 1.5rem;
   color: #333;
 `;
+
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: inherit;
 `;
+
 interface ServiceCardProps {
-  service: {
-    id: number;
-    name: string;
-    img: string;
-  };
+  id: number;
+  title: string;
+  image: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => (
-  <StyledLink to={`/service/${service.id}`}>
-    <Card
-      variants={cardVariants}
-      initial="hidden"
-      animate="visible"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      <CardImage src={service.img} alt={service.name} />
-      <CardContent>
-        <CardTitle>{service.name}</CardTitle>
-      </CardContent>
-    </Card>
-  </StyledLink>
-);
+const ServiceCard: React.FC<ServiceCardProps> = ({ id, title, image }) => {
+  return (
+    <StyledLink to={`/service/${id}`}>
+      <Card
+        variants={cardVariants}
+        initial="hidden"
+        animate="visible"
+        whileHover={{ scale: 1.05 }}
+      >
+        <CardImage src={image} alt={title} />
+        <CardContent>
+          <CardTitle>{title}</CardTitle>
+        </CardContent>
+      </Card>
+    </StyledLink>
+  );
+};
 
 export default ServiceCard;
