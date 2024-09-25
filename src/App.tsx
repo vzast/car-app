@@ -1,39 +1,39 @@
-import  { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Footer from "./footer";
 import Nav from "./nav";
 import ScrollToTop from "./location/StarOfPage";
-import CircularProgress from '@mui/material/CircularProgress'; 
-
-const Home = lazy(() => import("./pages/home/Home"));
-const Services = lazy(() => import("./pages/services/Index"));
-const AboutUs = lazy(() => import("./pages/About/Index"));
-const Contact = lazy(() => import("./pages/contact/Index"));
-const ServiceDetail = lazy(() => import("./pages/services/ServiceDetail"));
-const NotFound = lazy(() => import("./error/NotFound"));
-
-
-const Loader = () => (
-  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-    <CircularProgress />
-  </div>
-);
+import Home from "./pages/home/Home";
+import Services from "./pages/services/Index";
+import Contact from "./pages/contact/Index";
+import NotFound from "./error/NotFound";
+import AboutUs from "./pages/About/Index";
+import ServiceDetail from "./pages/services/ServiceDetail";
+import Accessories from "./components/Accessories";
+import AccessoriesDetail from "./components/AccessoriesDetails";
 
 function App() {
   return (
     <>
       <Nav />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <ScrollToTop />
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/service/:id" element={<ServiceDetail />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/service/:id" element={<ServiceDetail />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/accessories" element={<Accessories />} />
+        <Route path="/accessories/:id" element={<AccessoriesDetail />} />
+      </Routes>
+
       <Footer />
     </>
   );

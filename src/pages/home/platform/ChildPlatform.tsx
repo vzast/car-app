@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import { Box, Typography, styled } from "@mui/material";
 import { motion } from "framer-motion";
 
 interface Button {
@@ -13,36 +13,37 @@ interface ChildPlatformProps {
   output: Button | null;
 }
 
-const ImageWrapper = styled(motion.div)`
-  display: flex;
-  height: 100%;
-  overflow: hidden;
-`;
+const ImageWrapper = styled(motion.div)(({ theme }) => ({
+  display: "flex",
+  overflow: "hidden",
+  borderRadius: theme.shape.borderRadius,
+}));
 
-const TextWrapper = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-`;
+const StyledImage = styled("img")({
+  width: "100%",
+  maxWidth: 500,
+  height: "auto",
+});
 
-const StyledImage = styled.img`
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 10px;
-`;
+const TextWrapper = styled(motion.div)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  textAlign: "center",
+  padding: theme.spacing(9),
+  borderRadius: theme.shape.borderRadius,
+  boxShadow: theme.shadows[4],
+  backgroundColor: theme.palette.background.paper, 
+}));
 
-const Title = styled.h1`
-  font-size: 2rem;
-  margin: 0 0 1rem;
-`;
-
-const Description = styled.p`
-  font-size: 1rem;
-  margin: 0;
-`;
+const Container = styled(Box)(({ theme }) => ({
+  marginTop: theme.spacing(5),
+  padding: theme.spacing(4),
+  borderRadius: theme.shape.borderRadius,
+  boxShadow: theme.shadows[4],
+  backgroundColor: theme.palette.background.default,
+}));
 
 const imageVariants = {
   hidden: { opacity: 0, x: -200 },
@@ -58,9 +59,16 @@ const ChildPlatform: React.FC<ChildPlatformProps> = ({ output }) => {
   if (!output) return null;
 
   return (
-    <div className="container mt-5">
-      <div className="row align-items-center">
-        <div className="col-md-6">
+    <Container>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: { xs: "column", md: "row" },
+        }}
+      >
+        <Box sx={{ flex: 1, marginRight: { md: 2 } }}>
           <ImageWrapper
             initial="hidden"
             animate="visible"
@@ -69,20 +77,22 @@ const ChildPlatform: React.FC<ChildPlatformProps> = ({ output }) => {
           >
             <StyledImage src={output.imageUrl} alt={output.name} />
           </ImageWrapper>
-        </div>
-        <div className="col-md-6">
+        </Box>
+        <Box sx={{ flex: 1, marginLeft: { md: 2 }, marginTop: { xs: 4, md: 0 } }}>
           <TextWrapper
             initial="hidden"
             animate="visible"
             variants={textVariants}
             transition={{ duration: 0.6 }}
           >
-            <Title>{output.name}</Title>
-            <Description>{output.description}</Description>
+            <Typography variant="h4" component="h1" gutterBottom>
+              {output.name}
+            </Typography>
+            <Typography variant="body1">{output.description}</Typography>
           </TextWrapper>
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Container>
   );
 };
 

@@ -1,7 +1,6 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-
 const resources = {
   en: {
     translation: {
@@ -16,7 +15,7 @@ const resources = {
       "Leading the industry with innovative tech solutions and exceptional service.": "Leading the industry with innovative tech solutions and exceptional service.",
       "Offering web development, app creation, SEO, consulting, and more.": "Offering web development, app creation, SEO, consulting, and more.",
       "Connect with us on social media for updates and news.": "Connect with us on social media for updates and news.",
-      "Your Company": "Your Company",
+      "Your Company": "Your Company",  
       "All rights reserved.": "All rights reserved.",
       "Phone Numbers": "Phone Numbers",
       "Business Hours": "Business Hours",
@@ -41,7 +40,16 @@ const resources = {
         "All": "All",
         "IT": "IT",
         "Building": "Building"
-      }
+      },
+      "We align leaders around a shared purpose and strategic story that catalyzes their business and brand to take action.": "We align leaders around a shared purpose and strategic story that catalyzes their business and brand to take action.",
+      "Contact Information": "Contact Information",
+      "Monday - Friday: 9:00 AM - 5:00 PM": "Monday - Friday: 9:00 AM - 5:00 PM",
+      "Saturday: 10:00 AM - 2:00 PM": "Saturday: 10:00 AM - 2:00 PM",
+      "Sunday: Closed": "Sunday: Closed",
+      "Email: info@company.com": "Email: info@company.com",
+      "Phone: +1 234 567 890": "Phone: +1 234 567 890",
+      "Address: 123 Business St, City, Country": "Address: 123 Business St, City, Country",
+      "Our Location": "Our Location"
     },
   },
   ge: {
@@ -82,10 +90,20 @@ const resources = {
         "All": "ყველა",
         "IT": "IT",
         "Building": "მშენებლობა"
-      }
+      },
+      "We align leaders around a shared purpose and strategic story that catalyzes their business and brand to take action.": "ჩვენ გაწვდეთ ლიდერებს საერთო მიზნისა და სტრატეგიული ისტორიის გარშემო, რაც მათ ბიზნესსა და ბრენდს აქტიური მოქმედებისკენ აიძულებს.",
+      "Contact Information": "კონტაქტის ინფორმაცია",
+      "Monday - Friday: 9:00 AM - 5:00 PM": "ორშაბათი - პარასკევი: 9:00 AM - 5:00 PM",
+      "Saturday: 10:00 AM - 2:00 PM": "შაბათი: 10:00 AM - 2:00 PM",
+      "Sunday: Closed": "კვირა: დახურული",
+      "Email: info@company.com": "ელ. ფოსტა: info@company.com",
+      "Phone: +1 234 567 890": "ტელეფონი: +1 234 567 890",
+      "Address: 123 Business St, City, Country": "მისამართი: 123 Business St, ქალაქი, ქვეყანა",
+      "Our Location": "ჩვენი ადგილმდებარეობა"
     },
   },
 };
+
 
 i18n.use(initReactI18next).init({
   resources,

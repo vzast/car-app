@@ -1,25 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import "bootstrap/dist/css/bootstrap.min.css";
-
-interface HeaderChar {
-  char: string;
-  delay: number;
-}
 
 const Header: React.FC = () => {
   const { t } = useTranslation();
-  const [headerChars, setHeaderChars] = useState<HeaderChar[]>([]);
   const [showParagraph, setShowParagraph] = useState(false);
 
-  useEffect(() => {
-    const text = t("Welcome To Architech");
-    const chars = text.split("").map((char, i) => ({
+  const headerChars = useMemo(() => {
+    const text = t("Welcome To Totaltech");
+    return text.split("").map((char, i) => ({
       char,
-      delay: i * 0.05,
+      delay: i * 0.07, 
     }));
-    setHeaderChars(chars);
   }, [t]);
 
   const handleAnimationComplete = () => {
@@ -32,25 +24,30 @@ const Header: React.FC = () => {
         <div className="col-lg-7 col-md-12 mb-4 d-flex flex-column justify-content-center align-items-center">
           <div className="d-flex flex-wrap justify-content-center align-items-center">
             {headerChars.map(({ char, delay }, index) => (
-              <motion.span
+              <motion.h1
                 key={index}
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay }}
+                initial={{ opacity: 0, scale: 0.8, x: -100 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay,
+                  ease: "easeOut",
+                  type: "spring",
+                  stiffness: 150,
+                }}
                 onAnimationComplete={() => {
                   if (index === headerChars.length - 1) {
                     handleAnimationComplete();
                   }
                 }}
                 style={{
-                  fontSize: "2.5rem",
                   fontWeight: "bold",
                   color: "#333",
-                  marginRight: char === " " ? "0.5rem" : "0", // Add space between words
+                  marginRight: char === " " ? "0.8rem" : "0",
                 }}
               >
                 {char}
-              </motion.span>
+              </motion.h1>
             ))}
           </div>
           <motion.p

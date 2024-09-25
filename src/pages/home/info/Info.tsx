@@ -14,7 +14,6 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 
-
 const Container = styled(Box)(({ theme }) => ({
   background: "linear-gradient(135deg, #1e3c72, #2a5298)",
   boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
@@ -56,14 +55,14 @@ const TableWrapper = styled(TableContainer)(({ theme }) => ({
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   color: "#fff",
-  backgroundColor: "#00274d", 
+  backgroundColor: "#00274d",
   fontWeight: "bold",
   padding: theme.spacing(2),
   borderBottom: "1px solid #001f3f",
 }));
 
 const StyledTableRow = styled(TableRow)(() => ({
-  backgroundColor: "#f0f4f8", 
+  backgroundColor: "#f0f4f8",
   "&:nth-of-type(even)": {
     backgroundColor: "#e1e8ed",
   },
@@ -77,7 +76,7 @@ const AboutUs = styled(Box)(({ theme }) => ({
     fontSize: "2.5rem",
     marginBottom: theme.spacing(2),
     fontWeight: 700,
-    color: "#ffffff", 
+    color: "#ffffff",
   },
 
   "& p": {
@@ -85,7 +84,7 @@ const AboutUs = styled(Box)(({ theme }) => ({
     lineHeight: 1.6,
     margin: 0,
     padding: 0,
-    color: "#e0e0e0", 
+    color: "#e0e0e0",
   },
 }));
 
@@ -125,8 +124,8 @@ const Info: React.FC = () => {
               <StyledTableRow>
                 <StyledTableCell>Our Vision</StyledTableCell>
                 <TableCell>
-                  To become a leading innovator in technology solutions that drive
-                  client success and growth.
+                  To become a leading innovator in technology solutions that
+                  drive client success and growth.
                 </TableCell>
               </StyledTableRow>
               <StyledTableRow>

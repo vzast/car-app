@@ -18,8 +18,8 @@ import {
 } from "@mui/material";
 import { teal, grey, deepPurple } from "@mui/material/colors";
 import { useTranslation } from "react-i18next";
-import i18n from "../../multilanguage/i18";
-import Loader from "../../components/Loader";
+import i18n from "../multilanguage/i18";
+import Loader from "./Loader";
 
 interface Service {
   serviceImages: string[];
@@ -37,7 +37,7 @@ interface ServiceData {
   };
 }
 
-const ServiceDetail: React.FC = () => {
+const AccessoriesDetail: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
   const [service, setService] = useState<Service | null>(null);
   const [otherServices, setOtherServices] = useState<Service[]>([]);
@@ -48,10 +48,11 @@ const ServiceDetail: React.FC = () => {
   const { t } = useTranslation();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
+
   const fetchServices = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await fetch("/car-app/companyService.json");
+      const response = await fetch("/car-app/companyAccessories.json");
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.statusText}`);
       }
@@ -72,7 +73,7 @@ const ServiceDetail: React.FC = () => {
     } finally {
       setLoading(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, i18n.language]);
 
   useEffect(() => {
@@ -83,8 +84,8 @@ const ServiceDetail: React.FC = () => {
     return <Loader />;
   }
 
-  if (error) return <div>{t("Failed to fetch services")}</div>;
-  if (!service) return <div>{t("No service found")}</div>;
+  if (error) return <div>{t("Failed to fetch accessories")}</div>;
+  if (!service) return <div>{t("No accessories found")}</div>;
 
   return (
     <Container sx={{ mt: 4, p: 2, marginTop: "150px" }}>
@@ -126,21 +127,6 @@ const ServiceDetail: React.FC = () => {
                 }}
               >
                 {service.name}
-                {/* <div
-                  style={{
-                    display: "flex",
-                    gap: "10px",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  {service.serviceImages.map((image: string) => (
-                    <img
-                      src={image}
-                      alt="service-images"
-                      style={{ width: "200px", height: "auto" }}
-                    />
-                  ))}
-                </div>{" "} */}
               </Typography>
               <Typography
                 variant="body1"
@@ -192,7 +178,7 @@ const ServiceDetail: React.FC = () => {
             {otherServices.map((otherService) => (
               <Grid item key={otherService.id} xs={12} sm={6} md={4}>
                 <Link
-                  to={`/service/${otherService.id}`}
+                  to={`/accessories/${otherService.id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <MuiCard
@@ -249,4 +235,4 @@ const ServiceDetail: React.FC = () => {
   );
 };
 
-export default ServiceDetail;
+export default AccessoriesDetail;

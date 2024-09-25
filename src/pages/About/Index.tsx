@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import Info from "./Info";
+import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
+import Info from './Info';
 
 const Container = styled.div`
   max-width: 1200px;
@@ -57,6 +58,8 @@ const CardText = styled.p`
 `;
 
 const AboutUs = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <Info />
@@ -65,52 +68,12 @@ const AboutUs = () => {
           <Card>
             <CardImage
               src="https://via.placeholder.com/300"
-              alt="Our Mission"
+              alt={t("Our Mission")}
             />
             <CardBody>
-              <CardTitle>Our Mission</CardTitle>
+              <CardTitle>{t("Our Mission")}</CardTitle>
               <CardText>
-                Our mission is to deliver top-notch services and products that
-                exceed customer expectations. We aim to lead the industry
-                through innovation and dedication.
-              </CardText>
-            </CardBody>
-          </Card>
-        </Col>
-        <Col>
-          <Card>
-            <CardImage src="https://via.placeholder.com/300" alt="Our Vision" />
-            <CardBody>
-              <CardTitle>Our Vision</CardTitle>
-              <CardText>
-                We envision a future where our solutions revolutionize the
-                industry, making a significant impact on our customers' lives
-                and businesses.
-              </CardText>
-            </CardBody>
-          </Card>
-        </Col>
-        <Col>
-          <Card>
-            <CardImage src="https://via.placeholder.com/300" alt="Our Values" />
-            <CardBody>
-              <CardTitle>Our Values</CardTitle>
-              <CardText>
-                Integrity, innovation, and customer-centricity are the core
-                values that drive our company forward. We believe in fostering a
-                culture of trust and excellence.
-              </CardText>
-            </CardBody>
-          </Card>
-        </Col>
-        <Col>
-          <Card>
-            <CardImage src="https://via.placeholder.com/300" alt="Our Team" />
-            <CardBody>
-              <CardTitle>Our Team</CardTitle>
-              <CardText>
-                Our team is composed of dedicated professionals committed to
-                achieving excellence and delivering unparalleled service.
+                {t("Our mission is to deliver top-notch services and products that exceed customer expectations. We aim to lead the industry through innovation and dedication.")}
               </CardText>
             </CardBody>
           </Card>
@@ -119,25 +82,68 @@ const AboutUs = () => {
           <Card>
             <CardImage
               src="https://via.placeholder.com/300"
-              alt="Our History"
+              alt={t("Our Vision")}
             />
             <CardBody>
-              <CardTitle>Our History</CardTitle>
+              <CardTitle>{t("Our Vision")}</CardTitle>
               <CardText>
-                With a rich history of success and innovation, our company has
-                consistently been at the forefront of industry advancements.
+                {t("We envision a future where our solutions revolutionize the industry, making a significant impact on our customers' lives and businesses.")}
               </CardText>
             </CardBody>
           </Card>
         </Col>
         <Col>
           <Card>
-            <CardImage src="https://via.placeholder.com/300" alt="Our Impact" />
+            <CardImage
+              src="https://via.placeholder.com/300"
+              alt={t("Our Values")}
+            />
             <CardBody>
-              <CardTitle>Our Impact</CardTitle>
+              <CardTitle>{t("Our Values")}</CardTitle>
               <CardText>
-                Our impact is seen in the lives and businesses of our customers,
-                as we strive to make a positive difference every day.
+                {t("Integrity, innovation, and customer-centricity are the core values that drive our company forward. We believe in fostering a culture of trust and excellence.")}
+              </CardText>
+            </CardBody>
+          </Card>
+        </Col>
+        <Col>
+          <Card>
+            <CardImage
+              src="https://via.placeholder.com/300"
+              alt={t("Our Team")}
+            />
+            <CardBody>
+              <CardTitle>{t("Our Team")}</CardTitle>
+              <CardText>
+                {t("Our team is composed of dedicated professionals committed to achieving excellence and delivering unparalleled service.")}
+              </CardText>
+            </CardBody>
+          </Card>
+        </Col>
+        <Col>
+          <Card>
+            <CardImage
+              src="https://via.placeholder.com/300"
+              alt={t("Our History")}
+            />
+            <CardBody>
+              <CardTitle>{t("Our History")}</CardTitle>
+              <CardText>
+                {t("With a rich history of success and innovation, our company has consistently been at the forefront of industry advancements.")}
+              </CardText>
+            </CardBody>
+          </Card>
+        </Col>
+        <Col>
+          <Card>
+            <CardImage
+              src="https://via.placeholder.com/300"
+              alt={t("Our Impact")}
+            />
+            <CardBody>
+              <CardTitle>{t("Our Impact")}</CardTitle>
+              <CardText>
+                {t("Our impact is seen in the lives and businesses of our customers, as we strive to make a positive difference every day.")}
               </CardText>
             </CardBody>
           </Card>

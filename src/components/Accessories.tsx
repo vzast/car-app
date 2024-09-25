@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import i18n from "../../multilanguage/i18";
-import Loader from "../../components/Loader";
+import i18n from "../multilanguage/i18";
+import Loader from "./Loader";
 
 const ServicesContainer = styled(Container)`
   margin-top: 15rem;
@@ -93,7 +93,7 @@ const buttonVariants = {
   tap: { scale: 0.95, transition: { duration: 0.2 } },
 };
 
-type Development = "All" | "IT" | "Building";
+type Development = "All" | "RF" | "AM";
 
 interface Card {
   id: number;
@@ -109,7 +109,7 @@ interface CardObject {
 
 type CardData = Record<string, CardObject>;
 
-const Services: React.FC = () => {
+const Accessories: React.FC = () => {
   const { t } = useTranslation();
   const [cards, setCards] = useState<CardData>({});
   const [filteredCards, setFilteredCards] = useState<CardData>({});
@@ -120,7 +120,7 @@ const Services: React.FC = () => {
   const fetchCards = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await fetch("/car-app/companyService.json");
+      const response = await fetch("/car-app/companyAccessories.json");
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -145,21 +145,23 @@ const Services: React.FC = () => {
             ...cards,
             [i18n.language]: {
               cards: cards[i18n.language].cards.filter((card) => {
-                return card.development === t(`Filters.${development}`);
+                // Check if card's development matches the selected filter
+                return card.development === development;
               }),
             },
           }
     );
-  }, [development, cards, t]);
+  }, [development, cards,t]);
+  
 
   const handleFilterChange = (filter: Development) => {
     setDevelopment(filter);
   };
 
-  const FILTERS: Development[] = ["All", "IT", "Building"];
+  const FILTERS: Development[] = ["All", "RF", "AM"];
 
-  if(loading) {
-    return <Loader />
+  if (loading) {
+    return <Loader />;
   }
 
   return (
@@ -175,7 +177,7 @@ const Services: React.FC = () => {
             whileHover="hover"
             whileTap="tap"
           >
-            {t(`Filters.${filter}`)}
+            {t(`${filter}`)}
           </FilterButton>
         ))}
       </div>
@@ -209,7 +211,7 @@ const Services: React.FC = () => {
                   onMouseLeave={() => setHoveredCardId(null)}
                 >
                   <Link
-                    to={`/service/${card.id}`}
+                    to={`/accessories/${card.id}`}
                     style={{ textDecoration: "none" }}
                   >
                     <img src={card.img} alt={card.name} />
@@ -236,4 +238,4 @@ const Services: React.FC = () => {
   );
 };
 
-export default Services;
+export default Accessories;

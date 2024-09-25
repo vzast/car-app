@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import NavElements from "./NavElements";
-import { useTranslation } from "react-i18next"; 
+import { useTranslation } from "react-i18next";
 
 const NavbarContainer = styled(motion.nav)`
   position: fixed;
@@ -68,14 +68,16 @@ const NoneResponsiveNav = () => {
       <NavGroup>
         <img
           style={{ width: "120px", pointerEvents: "none" }}
-          src="./logo2.png"
+          src="public/TOTALTECH Down.png"
           alt="nav-icon"
         />
         <NavElements />
       </NavGroup>
       <NavItems>
         <li>
-          <i className="fab fa-facebook-f" style={{ fontSize: "20px" }}></i>
+          <a href="https://www.facebook.com/profile.php?id=61566252152735">
+            <i className="fab fa-facebook-f" style={{ fontSize: "20px" }}></i>
+          </a>
         </li>
         <li>
           <i className="fab fa-instagram" style={{ fontSize: "20px" }}></i>
@@ -84,8 +86,8 @@ const NoneResponsiveNav = () => {
           <i className="fab fa-tiktok" style={{ fontSize: "20px" }}></i>
         </li>
         <button
-          style={{ marginTop: "-10px", cursor: "pointer" }} 
-          className={"btn btn-outline-info"}
+          style={{ marginTop: "-8px", cursor: "pointer" }}
+          className={"btn btn-outline-primary"}
           onClick={toggleLanguage}
         >
           {i18n.language === "en" ? "ENG" : "GEO"}

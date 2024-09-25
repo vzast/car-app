@@ -1,0 +1,42 @@
+{
+  "en": {
+    "cards": [
+      {
+        "id": 1,
+        "name": "Alarm systems",
+        "info": "secure your place with alarm systems",
+        "img": "./icons/alarm.png",
+        "development": "RF",
+        "details": "RF (Radio Frequency) system accessories are essential components that enhance the performance, efficiency, and versatility of RF communication systems, supporting applications ranging from telecommunications to broadcasting. Key accessories include antennas, which convert electrical signals into radio waves and vice versa, with various types designed for specific applications and frequency ranges. Cables and connectors, such as coaxial and RG cables, facilitate the transmission of RF signals between system components, with high-quality options minimizing signal loss and interference. Filters, including bandpass, bandstop, low-pass, and high-pass types, remove unwanted frequencies or noise from RF signals, enhancing signal clarity. Amplifiers, such as low-noise amplifiers (LNAs) and power amplifiers, boost the strength of RF signals to ensure they can travel longer distances without degradation, crucial for weak signal conditions. Splitters and combiners distribute a single RF signal into multiple outputs or merge multiple RF signals into a single output, respectively, essential for complex RF setups."
+      },
+      {
+        "id": 2,
+        "name": "Camera devices",
+        "info": "secure your place with camera systems",
+        "img": "./icons/camera.png",
+        "development": "AM",
+        "details": "An accessories system in retail security comprises various components designed to protect merchandise effectively, including magnetic tags, super tags, labels, hard tags, detachers, and label deactivators. Magnetic tags are used to secure items and trigger alarms at exits if not properly deactivated, making them ideal for smaller, high-risk products. Super tags provide additional security for higher-value items and are harder to remove without the appropriate detacher. Labels are adhesive tags that indicate the security status of products and can be applied to a wide range of merchandise. Hard tags are durable plastic tags attached to products, designed to be challenging to remove without specialized tools, and are commonly used on clothing and electronics. Detachers are specialized tools that allow store employees to safely and efficiently remove hard tags during checkout, while label deactivators render security labels non-functional after a purchase, preventing alarms from triggering at store exits. This comprehensive accessories system is crucial for reducing theft, minimizing inventory loss, and ensuring a smooth shopping experience, ultimately enhancing overall store security and operational efficiency."
+      }
+    ]
+  },
+  "ge": {
+    "cards": [
+      {
+        "id": 1,
+        "name": "სიგნალიზაცია",
+        "info": "დაიცავი ტერიტორია ჩვენი სიგნალიზაციის სისტემის საშუალებით",
+        "img": "./icons/alarm.png",
+        "development": "RF",
+        "details": "RF (რადიო მაუწყებლობის) სისტემის აქსესუარები აუცილებელი კომპონენტებია, რომლებიც აუმჯობესებენ RF კომუნიკაციის სისტემების მუშაობას, ეფექტურობას და მრავალფეროვნებას, როგორც სატელეკომუნიკაციო, ისე მაუწყებლობის აპლიკაციებში. მთავარი აქსესუარებში შედის ანტენები, რომლებიც ელექტრო სიგნალებს რადიო ტალღებად გარდაქმნის და პირიქით, სხვადასხვა ტიპები სპეციალური აპლიკაციების და სიხშირის დიაპაზონების შესაბამისად გაწვდილი. კაბელები და კონექტორები, როგორიცაა კოაქსიური და RG კაბელები, უზრუნველყოფენ RF სიგნალების ტრანსმისიას სისტემის კომპონენტებს შორის, მაღალი ხარისხის ვარიანტები მინიმუმამდე ამცირებენ სიგნალის დაკარგვას და ინტერფერენციას. ფილტრები, მათ შორის ბანდპასის, ბანდსტოპის, დაბალი და მაღალი პასის ტიპები, აცილებენ არასასურველ სიხშირეებს ან ხმაურს RF სიგნალებიდან, რაც აუმჯობესებს სიგნალის სისუფთავეს. გამაძლიერებლები, როგორიცაა დაბალი ხმაურის გამაძლიერებლები (LNA) და ენერგიული გამაძლიერებლები, ასწორებენ RF სიგნალების ძლიერებას, რათა ისინი შეძლონ დიდი მანძილის გადატანა შეუქცევადობის გარეშე, რაც მნიშვნელოვანია სუსტი სიგნალის პირობებში. სპლიტერები და კომბინერები ასახავენ ერთ RF სიგნალს რამდენიმე გამოდის ან ერთ სიგნალს რამდენიმე RF სიგნალის მობილიზებაზე, რაც აუცილებელია კომპლექსური RF მოწყობილობებისთვის."
+      },
+      {
+        "id": 2,
+        "name": "კამერები",
+        "info": "აკონტროლე ტერიტორია 24/7 საათის განმავლობაში",
+        "img": "./icons/camera.png",
+        "development": "AM",
+        "details": "აქსესუარების სისტემა საცალო უსაფრთხოებაში მოიცავს სხვადასხვა კომპონენტებს, რომლებიც შექმნილია საქონლის ეფექტური დაცულობისთვის, მათ შორის: მაგნიტური ტაგები, სუპერ ტაგები, ეტიკეტები, მყარ ტაგები, დემონტაჟის ინსტრუმენტები და ეტიკეტის დეზაქტივატორები. მაგნიტური ტაგები გამოიყენება ნივთების გასაახლებლად და აფიქსირებს სიგნალს გასასვლელზე, თუ ისინი არ არის სწორად დეზაქტივირებული, რაც მათ იდეალურ აღჭურვილობას ხდის მცირე, მაღალი რისკის პროდუქტებისთვის. სუპერ ტაგები უზრუნველყოფს დამატებით უსაფრთხოებას უფრო მაღალი ღირებულების ნივთებისთვის და რთულია მათი მოხსნა შესაბამისი დემონტაჟის ინსტრუმენტის გარეშე. ეტიკეტები არის წებოვანი ტაგები, რომლებიც მიანიშნებენ პროდუქციის უსაფრთხოების სტატუსზე და შეიძლება გამოყენებულ იქნას სხვადასხვა საქონელზე. მტკიცე ტაგები არის მტკიცე პლასტიკური ტაგები, რომლებიც პროდუქციას ესაჭიროება და შექმნილია იმისთვის, რომ მათი მოხსნა სპეციალური ინსტრუმენტების გარეშე გამიჭირდეს, და ჩვეულებრივ გამოიყენება სამოსზე და ელექტრონიკაზე. დემონტაჟის ინსტრუმენტები არის სპეციალიზებული ინსტრუმენტები, რომლებიც საშუალებას აძლევს მაღაზიების თანამშრომლებს უსაფრთხოდ და ეფექტურად მოაშორონ მტკიცე ტაგები Checkout-ის დროს, ხოლო ეტიკეტის დეზაქტივატორები ხდის უსაფრთხოების ეტიკეტებს ფუნქციურად არამოქმედებად შეძენის შემდეგ, რაც არ აჩერებს სიგნალების გაწვდას მაღაზიის გასასვლელებზე. ეს ყოვლისმომცველი აქსესუარების სისტემა ძალიან მნიშვნელოვანია ქურდობის შემცირების, ინვენტარიზაციის დანაკარგების მინიმიზაციის და მშვიდი შოპინგის გამოცდილების უზრუნველყოფისთვის, რაც საბოლოოდ ზრდის მაღაზიის მთლიან უსაფრთხოებას და ოპერაციული ეფექტურობას."
+      }
+    ]
+  }
+}

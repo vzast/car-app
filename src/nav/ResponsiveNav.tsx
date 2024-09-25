@@ -37,25 +37,26 @@ const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #333;
-  color: white;
+  background: #f5f5f5; /* Paper background color */
+  color: #333; /* Darker text color for contrast */
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   transition: top 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for paper effect */
 `;
 
 const NavIcon = styled.img`
-  width: 50px;
+  width: 90px;
 `;
 
 const TogglerButton = styled.button<TogglerButtonProps>`
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: #333;
   font-size: 24px;
   cursor: pointer;
   padding: 10px;
@@ -74,14 +75,13 @@ const TogglerButton = styled.button<TogglerButtonProps>`
 
 const NavItems = styled.div<{ isVisible: boolean }>`
   display: flex;
-  gap: 20px;
   flex-direction: column;
   width: 100%;
-  background-color: #333;
+  background: #fff; /* Paper-like background for dropdown */
   position: absolute;
-  top: 70px;
+  top: 88px;
   left: 0;
-  max-height: ${(props) => (props.isVisible ? "calc(100vh - 60px)" : "0")};
+  max-height: ${(props) => (props.isVisible ? "calc(100vh - 70px)" : "0")};
   opacity: ${(props) => (props.isVisible ? "1" : "0")};
   transform: ${(props) =>
     props.isVisible ? "translateY(0)" : "translateY(-20px)"};
@@ -95,17 +95,18 @@ const NavItems = styled.div<{ isVisible: boolean }>`
           ${slideOut} 0.3s ease-in forwards
         `};
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for dropdown */
 `;
 
 const NavLink = styled(Link)`
-  color: white;
+  color: #333; /* Darker link color */
   text-decoration: none;
   padding: 15px;
   display: block;
   transition: color 0.3s ease;
 
   &:hover {
-    color: #ddd;
+    color: #555; /* Slightly lighter color on hover */
   }
 `;
 
@@ -177,7 +178,7 @@ const ResponsiveNav = () => {
       }}
     >
       <NavIcon
-        src="https://cdn-icons-png.flaticon.com/128/1023/1023757.png"
+        src="./logo2.png"
         alt="nav-icon"
       />
       <TogglerButton
