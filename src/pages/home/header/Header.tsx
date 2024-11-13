@@ -7,10 +7,10 @@ const Header: React.FC = () => {
   const [showParagraph, setShowParagraph] = useState(false);
 
   const headerChars = useMemo(() => {
-    const text = t("Welcome To Totaltech");
+    const text = t("TOTALTECH");
     return text.split("").map((char, i) => ({
       char,
-      delay: i * 0.07, 
+      delay: i * 0.2,
     }));
   }, [t]);
 
@@ -19,21 +19,33 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div className="container-fluid" style={{ marginTop: "300px" }}>
-      <div className="row text-center">
+    <div
+      className="container-fluid p-5"
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(0,123,255,0.9), rgba(0,198,255,0.9)), url('./background-pattern.png')",
+        backgroundSize: "cover",
+        paddingBottom: "8rem",
+        borderBottomLeftRadius: "40% 10%",
+        borderBottomRightRadius: "40% 10%",
+        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)",
+        overflow: "hidden",
+      }}
+    >
+      <div className="row text-center align-items-center">
         <div className="col-lg-7 col-md-12 mb-4 d-flex flex-column justify-content-center align-items-center">
           <div className="d-flex flex-wrap justify-content-center align-items-center">
             {headerChars.map(({ char, delay }, index) => (
               <motion.h1
                 key={index}
-                initial={{ opacity: 0, scale: 0.8, x: -100 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
+                className="text-white"
+                initial={{ opacity: 0, x: -200 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{
-                  duration: 0.6,
+                  duration: 0.4,
                   delay,
-                  ease: "easeOut",
                   type: "spring",
-                  stiffness: 150,
+                  stiffness: 200,
                 }}
                 onAnimationComplete={() => {
                   if (index === headerChars.length - 1) {
@@ -42,8 +54,10 @@ const Header: React.FC = () => {
                 }}
                 style={{
                   fontWeight: "bold",
-                  color: "#333",
-                  marginRight: char === " " ? "0.8rem" : "0",
+                  marginRight: char === " " ? "0.2rem" : "0",
+                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                  color: "#ffffff",
+                  textShadow: "1px 3px 8px rgba(0, 0, 0, 0.2)",
                 }}
               >
                 {char}
@@ -51,30 +65,28 @@ const Header: React.FC = () => {
             ))}
           </div>
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: showParagraph ? 1 : 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-white mt-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: showParagraph ? 1 : 0, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
             style={{
               fontSize: "1.125rem",
-              lineHeight: "1.6",
-              color: "#555",
-              marginTop: "1rem",
-              maxWidth: "800px",
+              lineHeight: "1.8",
+              maxWidth: "650px",
               textAlign: "center",
-              fontFamily: "Arial, sans-serif",
+              color: "#f0f0f0",
+              fontFamily: "'Roboto', sans-serif",
             }}
           >
-            აიტიკრაფტი არის აიტი სერვისების პროვაიდერი კომპანია, ჩვენს
-            სერვისებში შედის აიტი აუთსორსინგი, აიტი ინფრასტრუქტურული
-            გადაწყვეტილებები, მართვადი სერვისები და საკონსულტაციო მომსახურებები.
+            თქვენი პარტნიორი უსაფრთხოებასა და 
           </motion.p>
         </div>
         <div className="col-lg-5 col-md-12 d-flex justify-content-center">
           <motion.img
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="img-fluid rounded w-75"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="img-fluid rounded"
             src="./header-photo.png"
             alt="about-header-img"
           />

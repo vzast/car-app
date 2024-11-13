@@ -1,53 +1,81 @@
 import React from "react";
-import { Box, Typography, styled } from "@mui/material";
+import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 interface Button {
   id: number;
-  name: string;
+  name: { en: string; ge: string };
   imageUrl: string;
-  description: string;
+  description: { en: string; ge: string };
 }
 
 interface ChildPlatformProps {
   output: Button | null;
 }
 
-const ImageWrapper = styled(motion.div)(({ theme }) => ({
-  display: "flex",
-  overflow: "hidden",
-  borderRadius: theme.shape.borderRadius,
-}));
+const Container = styled.div`
+  margin-top: 40px;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #6d67e4;
+`;
 
-const StyledImage = styled("img")({
-  width: "100%",
-  maxWidth: 500,
-  height: "auto",
-});
+const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-const TextWrapper = styled(motion.div)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  textAlign: "center",
-  padding: theme.spacing(9),
-  borderRadius: theme.shape.borderRadius,
-  boxShadow: theme.shadows[4],
-  backgroundColor: theme.palette.background.paper, 
-}));
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+`;
 
-const Container = styled(Box)(({ theme }) => ({
-  marginTop: theme.spacing(5),
-  padding: theme.spacing(4),
-  borderRadius: theme.shape.borderRadius,
-  boxShadow: theme.shadows[4],
-  backgroundColor: theme.palette.background.default,
-}));
+const ImageWrapper = styled(motion.div)`
+  display: flex;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-right: 16px;
+`;
+
+const StyledImage = styled.img`
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+`;
+
+const TextWrapper = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 72px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  margin-top: 16px;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+    margin-left: 16px;
+  }
+`;
+
+const Title = styled.h1`
+  font-size: 24px;
+  margin-bottom: 16px;
+`;
+
+const Description = styled.p`
+  font-size: 16px;
+`;
 
 const imageVariants = {
-  hidden: { opacity: 0, x: -200 },
-  visible: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, sclale: 0, y: -50 },
+  visible: { opacity: 1, sclale: 1, y: 0 },
 };
 
 const textVariants = {
@@ -56,42 +84,32 @@ const textVariants = {
 };
 
 const ChildPlatform: React.FC<ChildPlatformProps> = ({ output }) => {
+  const { i18n } = useTranslation();
+
   if (!output) return null;
+  const currentLanguage = i18n.language as keyof Button["description"];
 
   return (
     <Container>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: { xs: "column", md: "row" },
-        }}
-      >
-        <Box sx={{ flex: 1, marginRight: { md: 2 } }}>
-          <ImageWrapper
-            initial="hidden"
-            animate="visible"
-            variants={imageVariants}
-            transition={{ duration: 0.5 }}
-          >
-            <StyledImage src={output.imageUrl} alt={output.name} />
-          </ImageWrapper>
-        </Box>
-        <Box sx={{ flex: 1, marginLeft: { md: 2 }, marginTop: { xs: 4, md: 0 } }}>
-          <TextWrapper
-            initial="hidden"
-            animate="visible"
-            variants={textVariants}
-            transition={{ duration: 0.6 }}
-          >
-            <Typography variant="h4" component="h1" gutterBottom>
-              {output.name}
-            </Typography>
-            <Typography variant="body1">{output.description}</Typography>
-          </TextWrapper>
-        </Box>
-      </Box>
+      <ContentWrapper>
+        <ImageWrapper
+          initial="hidden"
+          animate="visible"
+          variants={imageVariants}
+          transition={{ duration: 0.5 }}
+        >
+          <StyledImage src={output.imageUrl} alt={output.name.en} />
+        </ImageWrapper>
+        <TextWrapper
+          initial="hidden"
+          animate="visible"
+          variants={textVariants}
+          transition={{ duration: 0.6 }}
+        >
+          <Title>{output.name[currentLanguage]}</Title>
+          <Description>{output.description[currentLanguage]}</Description>
+        </TextWrapper>
+      </ContentWrapper>
     </Container>
   );
 };

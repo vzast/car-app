@@ -1,14 +1,15 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ChildPlatform from "./ChildPlatform";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 interface Button {
   id: number;
-  name: string;
+  name: { en: string; ge: string };
   img: string;
   imageUrl: string;
-  description: string;
+  description: { en: string; ge: string };
 }
 
 const Container = styled.div`
@@ -28,12 +29,11 @@ const ButtonCard = styled.div<{
   margin: 10px;
   text-align: center;
   flex: 1 1 auto;
-  background: ${(props) => (props.isSelected ? "#f4f4f9" : "transparent")};
+  background: ${(props) => (props.isSelected ? "white" : "transparent")};
   transition: background 0.3s ease;
 
   &:hover {
     border-color: black;
-    background: #f4f4f9;
   }
 `;
 
@@ -46,36 +46,46 @@ const ButtonImage = styled.img`
 const buttons: Button[] = [
   {
     id: 1,
-    name: "name1",
-    img: "https://cdn-icons-png.flaticon.com/128/10851/10851040.png",
-    imageUrl:
-      "https://securedroofingandsolar.com/wp-content/uploads/2024/02/solar-panels-wood-house.webp",
-    description: "This is the description for button 1.",
+    name: { en: "Desktop App", ge: "დესკტოპ აპლიკაცია" },
+    img: "https://cdn-icons-png.flaticon.com/128/9673/9673566.png",
+    imageUrl: "public/icons/desktop-app.png",
+    description: {
+      en: "We provide powerful and user-friendly desktop applications designed to enhance productivity and streamline operations. Our solutions are crafted to fit seamlessly into your existing workflows.",
+      ge: "ჩვენ ვუზრუნველყოფთ რომ თქვენი დეკტოპ აპლ;იკაცია იყოს მძლავრი და რაც შეძლება მარტივი რათა გაზარდოს პროდუქტიულობა და ოპოერაციების ხარისხი.",
+    },
   },
   {
     id: 2,
-    name: "name2",
+    name: { en: "Web Development", ge: "ვებ განვითარება" },
     img: "https://cdn-icons-png.flaticon.com/128/10276/10276295.png",
-    imageUrl:
-      "https://exbroit.com/wp-content/uploads/2023/12/Web-based-application-development-service-1200-x-800.jpg",
-    description: "This is the description for button 2.",
+    imageUrl: "public/icons/web-development.png",
+    description: {
+      en: "Our team delivers innovative, scalable, and responsive web solutions tailored to your business goals. From design to deployment, we ensure a seamless experience for both you and your users.",
+      ge: "ვებსაიტის შექმნა თქვენს ბიზნესზე მორგებული დიზაინითა და შესაძლებლობებით, იქნება ეს კომპლექსური თუ მარტივი ერთ გვერდიანი მოთხოვნა",
+    },
   },
   {
     id: 3,
-    name: "name3",
-    img: "https://cdn-icons-png.flaticon.com/128/1973/1973100.png",
-    imageUrl:
-      "https://www.nydailynews.com/wp-content/uploads/migration/2014/10/30/5IPGIUARKG4UFZIOFJWEAOG7EY.jpg",
-    description: "This is the description for button 3.",
+    name: { en: "Mobile App", ge: "მობილური აპლიკაცია" },
+    img: "https://cdn-icons-png.flaticon.com/128/9662/9662287.png",
+    imageUrl: "public/icons/mobile-app.png",
+    description: {
+      en: "We create engaging and reliable mobile applications that enhance your reach and user engagement. Our expertise ensures smooth functionality across platforms, helping your business connect with users on the go.",
+      ge: "ჩვენ ვქმნით სანდო და მარტივ მოაბაილ აპლიკაციებს რაც ზრდის პროდუქტიულობასა და მომხმარებლების ჩართულობას",
+    },
   },
 ];
 
 const Platform: React.FC = () => {
-
+  const { t, i18n } = useTranslation();
   const [selectedButton, setSelectedButton] = useState<Button | null>(
     buttons[0]
   );
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
+
+  useEffect(() => {
+    setSelectedButton(buttons[0]);
+  }, [i18n.language]);
 
   const handleCardClick = useCallback(
     (button: Button) => {
@@ -88,6 +98,8 @@ const Platform: React.FC = () => {
     [isAnimating]
   );
 
+  const currentLanguage = i18n.language as keyof Button["name"];
+
   return (
     <Container className="container">
       <div className="d-flex flex-wrap justify-content-center">
@@ -98,13 +110,16 @@ const Platform: React.FC = () => {
             isSelected={selectedButton?.id === button.id}
             isDisabled={isAnimating}
           >
-            <ButtonImage src={button.img} alt={button.name} loading="lazy" />
-            <h1>{button.name}</h1>
+            <ButtonImage
+              src={button.img}
+              alt={t(button.name[currentLanguage])}
+              loading="lazy"
+            />
           </ButtonCard>
         ))}
       </div>
 
-      <AnimatePresence >
+      <AnimatePresence>
         {selectedButton && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}

@@ -49,7 +49,9 @@ const resources = {
       "Email: info@company.com": "Email: info@company.com",
       "Phone: +1 234 567 890": "Phone: +1 234 567 890",
       "Address: 123 Business St, City, Country": "Address: 123 Business St, City, Country",
-      "Our Location": "Our Location"
+      "Our Location": "Our Location",
+      "Product Name":"Product Name",
+      "Shop":"Shop"
     },
   },
   ge: {
@@ -99,7 +101,8 @@ const resources = {
       "Email: info@company.com": "ელ. ფოსტა: info@company.com",
       "Phone: +1 234 567 890": "ტელეფონი: +1 234 567 890",
       "Address: 123 Business St, City, Country": "მისამართი: 123 Business St, ქალაქი, ქვეყანა",
-      "Our Location": "ჩვენი ადგილმდებარეობა"
+      "Our Location": "ჩვენი ადგილმდებარეობა",
+      "Shop":"მაღაზია"
     },
   },
 };

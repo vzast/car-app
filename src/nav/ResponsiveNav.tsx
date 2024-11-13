@@ -37,8 +37,7 @@ const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: #f5f5f5; /* Paper background color */
-  color: #333; /* Darker text color for contrast */
+  background: #f5f5f5;
   position: fixed;
   width: 100%;
   top: 0;
@@ -56,7 +55,6 @@ const TogglerButton = styled.button<TogglerButtonProps>`
   display: none;
   background: none;
   border: none;
-  color: #333;
   font-size: 24px;
   cursor: pointer;
   padding: 10px;
@@ -178,7 +176,8 @@ const ResponsiveNav = () => {
       }}
     >
       <NavIcon
-        src="./logo2.png"
+        style={{ marginTop: "0px" }}
+        src="public/TOTALTECH Down.png"
         alt="nav-icon"
       />
       <TogglerButton
@@ -199,26 +198,10 @@ const ResponsiveNav = () => {
             სერვისები
           </NavLink>
         </NavItem>
-        <NavItem>
-          <NavLink to="/about" onClick={handleNavLinkClick}>
-            ჩვენ შესახებ
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/partners" onClick={handleNavLinkClick}>
-            პარტნიორები
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/gallery" onClick={handleNavLinkClick}>
-            ფოტო გალერეა
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/blog" onClick={handleNavLinkClick}>
-            ბლოგი
-          </NavLink>
-        </NavItem>
+        <NavLink to="/accessories" onClick={handleNavLinkClick}>
+          სერვისები
+        </NavLink>
+        <NavItem></NavItem>
         <NavItem>
           <NavLink to="/contact" onClick={handleNavLinkClick}>
             კონტაქტი

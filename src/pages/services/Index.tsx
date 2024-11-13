@@ -5,10 +5,12 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "../../multilanguage/i18";
-import Loader from "../../components/Loader";
+import Loader from "../Accessories/Loader";
 
 const ServicesContainer = styled(Container)`
-  margin-top: 15rem;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 0 15px;
 `;
 
 const CardContainer = styled(motion.div)`
@@ -17,63 +19,84 @@ const CardContainer = styled(motion.div)`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   background: #fff;
-  padding: 15px;
+  padding: 20px;
   width: 100%;
-  max-width: 300px;
-  height: 280px;
+  max-width: 320px;
+  height: 340px;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 
   &:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-12px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   }
 
   img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 12px;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
+    opacity: 0.9;
   }
 `;
 
 const CardTitle = styled.h2`
   text-align: center;
-  font-size: 1.25rem;
-  margin: 10px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 15px 0;
   color: #333;
+`;
+
+const CardPrice = styled.div`
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 15px;
 `;
 
 const CardInfo = styled(motion.div)`
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-top: 10px;
   position: absolute;
-  bottom: 15px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
   width: calc(100% - 20px);
   opacity: 0;
-  transition: opacity 0.4s ease;
 `;
 
 const FilterButton = styled(motion.button)<{ isActive: boolean }>`
   background-color: ${(props) => (props.isActive ? "#007bff" : "#6c757d")};
   color: white;
   border: none;
-  padding: 10px 20px;
-  margin: 0 10px;
-  border-radius: 4px;
+  padding: 10px 18px;
+  margin: 0 12px;
+  border-radius: 5px;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 
   &:hover {
     background-color: ${(props) => (props.isActive ? "#0056b3" : "#5a6268")};
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 `;
 
@@ -83,9 +106,9 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: -100 },
+  hidden: { opacity: 0, y: -150 },
   visible: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -100 },
+  exit: { opacity: 0, y: -150 },
 };
 
 const buttonVariants = {
@@ -101,6 +124,7 @@ interface Card {
   info: string;
   img: string;
   development: Development;
+  price: string;
 }
 
 interface CardObject {
@@ -116,6 +140,7 @@ const Services: React.FC = () => {
   const [development, setDevelopment] = useState<Development>("All");
   const [hoveredCardId, setHoveredCardId] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isReRendering, setIsReRendering] = useState(false);
 
   const fetchCards = useCallback(async () => {
     try {
@@ -138,6 +163,10 @@ const Services: React.FC = () => {
   }, [fetchCards]);
 
   useEffect(() => {
+    if (development !== "All") {
+      setIsReRendering(true);
+    }
+
     setFilteredCards(
       development === "All"
         ? cards
@@ -150,6 +179,12 @@ const Services: React.FC = () => {
             },
           }
     );
+
+    const timer = setTimeout(() => {
+      setIsReRendering(false);
+    }, 600);
+
+    return () => clearTimeout(timer);
   }, [development, cards, t]);
 
   const handleFilterChange = (filter: Development) => {
@@ -158,8 +193,8 @@ const Services: React.FC = () => {
 
   const FILTERS: Development[] = ["All", "IT", "Building"];
 
-  if(loading) {
-    return <Loader />
+  if (loading || isReRendering) {
+    return <Loader />;
   }
 
   return (
@@ -204,7 +239,7 @@ const Services: React.FC = () => {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  transition={{ duration: 0.05, delay: card.id * 0.05 }}
+                  transition={{ duration: 0.05, delay: card.id * 0.08 }}
                   onMouseEnter={() => setHoveredCardId(card.id)}
                   onMouseLeave={() => setHoveredCardId(null)}
                 >
@@ -214,6 +249,7 @@ const Services: React.FC = () => {
                   >
                     <img src={card.img} alt={card.name} />
                     <CardTitle>{card.name}</CardTitle>
+                    <CardPrice>{card.price}</CardPrice>
                     <AnimatePresence>
                       {hoveredCardId === card.id && (
                         <CardInfo

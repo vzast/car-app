@@ -98,22 +98,14 @@ const NavElements: React.FC = () => {
         </ListItem>
         <ListItem>
           <NavLink
-            to="/about"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            {t("About Us")}
-          </NavLink>
-        </ListItem>
-        <ListItem>
-          <NavLink
             to="/accessories"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            {t("Accessories")}
+            {t("Shop")}
           </NavLink>
         </ListItem>
         <NavLink
-          to="/contact"
+          to="/Contact"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
           {({ isActive }) => (
