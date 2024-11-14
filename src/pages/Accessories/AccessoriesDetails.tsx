@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Loader from "./Loader";
-import { motion, AnimatePresence } from "framer-motion";
+
 
 import { useTranslation } from "react-i18next";
 
@@ -46,58 +46,23 @@ const AccessoriesDetails: React.FC = () => {
     : undefined;
   console.log(accessoryId);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   if (isLoading) return <Loader />;
   if (error) return <div>Error loading accessories</div>;
   if (!accessory) return <div>Accessory not found</div>;
 
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? accessory.gallery.length - 1 : prevIndex - 1
-    );
-  };
+ 
 
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === accessory.gallery.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+ 
 
-  const handleThumbnailClick = (index: number) => {
-    setCurrentIndex(index);
-  };
+
 
   return (
     <div className="container" style={{ overflow: "hidden" }}>
       <div className="card p-4">
         <div className="row">
           <div className="col-lg-6 col-md-12 col-sm-12 text-center">
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.img
-                key={currentIndex}
-                src={accessory.gallery[currentIndex]}
-                alt={`Accessory ${currentIndex + 1}`}
-                className="img-fluid rounded"
-                style={{
-                  objectFit: "cover",
-                  maxHeight: "400px",
-                  width: "100%",
-                }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.3 }}
-              />
-            </AnimatePresence>
-            <div className="mt-3 d-flex justify-content-center">
-              <button className="btn btn-primary me-2" onClick={goToPrevious}>
-                &lt;
-              </button>
-              <button className="btn btn-primary" onClick={goToNext}>
-                &gt;
-              </button>
-            </div>
+            <img src={accessory.img} />
           </div>
 
           <div className="col-lg-6 col-md-12">
@@ -132,23 +97,7 @@ const AccessoriesDetails: React.FC = () => {
                         whiteSpace: "nowrap",
                       }}
                     >
-                      {accessory.gallery.map((image, index) => (
-                        <motion.img
-                          whileTap={{ scale: 0.3 }}
-                          key={index}
-                          src={image}
-                          alt={`Gallery ${index + 1}`}
-                          className="img-thumbnail m-1"
-                          style={{
-                            width: "110px",
-                            height: "110px",
-                            objectFit: "cover",
-                            cursor: "pointer",
-                            flexShrink: 0,
-                          }}
-                          onClick={() => handleThumbnailClick(index)}
-                        />
-                      ))}
+                     
                     </div>
                   </td>
                 </tr>

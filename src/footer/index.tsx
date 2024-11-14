@@ -12,15 +12,7 @@ const Footer: React.FC = () => {
     marginTop: "150px",
   };
 
-  const socialIconsStyle: React.CSSProperties = {
-    color: "#ffffff",
-    fontSize: "20px",
-    marginRight: "15px",
-  };
-
-  const socialIconsHoverStyle: React.CSSProperties = {
-    color: "#007bff",
-  };
+ 
 
   const footerHeadingStyle: React.CSSProperties = {
     color: "#ffffff",
@@ -31,13 +23,7 @@ const Footer: React.FC = () => {
     margin: "0",
   };
 
-  const handleMouseOver = (e: React.MouseEvent<HTMLSpanElement>) => {
-    e.currentTarget.style.color = socialIconsHoverStyle.color as string;
-  };
-
-  const handleMouseOut = (e: React.MouseEvent<HTMLSpanElement>) => {
-    e.currentTarget.style.color = socialIconsStyle.color as string;
-  };
+  
 
   const currentYear = new Date().getFullYear();
   return (
@@ -62,58 +48,19 @@ const Footer: React.FC = () => {
           </div>
           <div className="col-md-3">
             <h5 style={footerHeadingStyle}>{t("Contact")}</h5>
+
             <p style={contactInfoStyle}>
-              <i className="fas fa-map-marker-alt"></i>{" "}
-              {t("123 Main Street, Anytown, USA")}
+              <i className="fas fa-phone"></i> {t("595850777")}
             </p>
             <p style={contactInfoStyle}>
-              <i className="fas fa-phone"></i> {t("(123) 456-7890")}
-            </p>
-            <p style={contactInfoStyle}>
-              <i className="fas fa-envelope"></i> {t("email@example.com")}
+              <i className="fas fa-envelope"></i>{" "}
+              {t("totaltech.companyinfo@gmail.com")}
             </p>
           </div>
           <div className="col-md-3">
             <h5 style={footerHeadingStyle}>{t("Follow Us")}</h5>
             <p>{t("Connect with us on social media for updates and news.")}</p>
-            <div>
-              <span
-                className="fab fa-facebook-f"
-                style={socialIconsStyle}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-              ></span>
-              <span
-                className="fab fa-twitter"
-                style={socialIconsStyle}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-              ></span>
-              <span
-                className="fab fa-linkedin-in"
-                style={socialIconsStyle}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-              ></span>
-              <span
-                className="fab fa-instagram"
-                style={socialIconsStyle}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-              ></span>
-              <span
-                className="fab fa-youtube"
-                style={socialIconsStyle}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-              ></span>
-              <span
-                className="fab fa-pinterest"
-                style={socialIconsStyle}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-              ></span>
-            </div>
+            
           </div>
         </div>
         <div className="row mt-4">

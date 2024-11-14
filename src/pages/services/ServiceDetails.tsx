@@ -120,7 +120,7 @@ const ServiceDetail: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, i18n.language]);
 
   useEffect(() => {
@@ -160,7 +160,9 @@ const ServiceDetail: React.FC = () => {
 
           <Divider />
 
-          <Button>{t("Make a call")}</Button>
+          <Button as="a" href="tel:595850777">
+            {t("Make a call")}
+          </Button>
         </div>
       </div>
     </Container>

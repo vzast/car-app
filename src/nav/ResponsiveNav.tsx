@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import styled, { css, keyframes } from "styled-components";
+import i18n from "../multilanguage/i18";
 
 const slideIn = keyframes`
   from {
@@ -164,7 +165,10 @@ const ResponsiveNav = () => {
       setIsButtonToggled(false);
     }
   }, [isNavVisible]);
-
+  const toggleLanguage = () => {
+    const newLanguage = i18n.language === "en" ? "ge" : "en";
+    i18n.changeLanguage(newLanguage);
+  };
   return (
     <Navbar
       style={{
@@ -175,12 +179,20 @@ const ResponsiveNav = () => {
             : "0 4px 8px rgba(0, 0, 0, 0.3)",
       }}
     >
+      <button
+        style={{ marginTop: "-8px", cursor: "pointer" }}
+        className={"btn btn-outline-primary"}
+        onClick={toggleLanguage}
+      >
+        {i18n.language === "en" ? "ENG" : "GEO"}
+      </button>
       <NavIcon
         style={{ marginTop: "0px" }}
         src="public/TOTALTECH Down.png"
         alt="nav-icon"
       />
       <TogglerButton
+        style={{ marginTop: "-15px" }}
         onClick={toggleNav}
         isNavVisible={isButtonToggled}
         aria-label={isNavVisible ? "Close menu" : "Open menu"}

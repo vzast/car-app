@@ -80,10 +80,14 @@ const NoneResponsiveNav = () => {
           </a>
         </li>
         <li>
-          <i className="fab fa-instagram" style={{ fontSize: "20px" }}></i>
+          <a href="https://www.instagram.com/totaltech.company/profilecard/?igsh=MXUyazF6bTduNGtx">
+            <i className="fab fa-instagram" style={{ fontSize: "20px" }}></i>
+          </a>
         </li>
         <li>
-          <i className="fab fa-tiktok" style={{ fontSize: "20px" }}></i>
+          <a href="https://www.tiktok.com/@totaltech.company?_r=1&_d=secCgYIASAHKAESPgo88%2F3TxT344WHHmGvo9IFOYqytxXU66%2BC7eamvkZkFPDNEqwa5cX1REHfFo5TMyb9NURe14HLMOb1mDP7TGgA%3D&checksum=1cf5a7be284823d942a4ed05072bdd3ffd81661f543f65ff9f4bfd5105454e58&sec_uid=MS4wLjABAAAAY12aR4NIFGh0BWgAp78wbHM9sozWlwud0H01uyQz0bKHkr7GdZMADSj9w2J9S0Ry&sec_user_id=MS4wLjABAAAAY12aR4NIFGh0BWgAp78wbHM9sozWlwud0H01uyQz0bKHkr7GdZMADSj9w2J9S0Ry&share_app_id=1233&share_author_id=7417520244019381255&share_link_id=002206AF-2BFB-4247-8CAE-FA231F68D572&sharer_language=en&social_share_type=4&source=h5_m&timestamp=1731581189&tt_from=copy&u_code=egakb9bm0i430h&ug_btm=b8727%2Cb0&user_id=7417520244019381255&utm_campaign=client_share&utm_medium=ios&utm_source=copy">
+            <i className="fab fa-tiktok" style={{ fontSize: "20px" }}></i>
+          </a>
         </li>
         <button
           style={{ marginTop: "-8px", cursor: "pointer" }}

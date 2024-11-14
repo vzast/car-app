@@ -78,8 +78,7 @@ const Header: React.FC = () => {
               fontFamily: "'Roboto', sans-serif",
             }}
           >
-            თქვენი პარტნიორი უსაფრთხოებასა და 
-          </motion.p>
+         </motion.p>
         </div>
         <div className="col-lg-5 col-md-12 d-flex justify-content-center">
           <motion.img

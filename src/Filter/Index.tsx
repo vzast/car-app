@@ -1,7 +1,6 @@
 import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-useTranslation
 
 interface ShopFilterProps {
   setFilters: React.Dispatch<
@@ -67,7 +66,7 @@ const ShopFilter: React.FC<ShopFilterProps> = ({ setFilters }) => {
       aud,
     }));
   };
-
+  const { t } = useTranslation();
   return (
     <Container
       style={{
@@ -90,7 +89,7 @@ const ShopFilter: React.FC<ShopFilterProps> = ({ setFilters }) => {
           textAlign: "center",
         }}
       >
-        Filter Products
+        {t("Filter Products")}
       </h4>
       <div style={{ borderTop: "2px solid #ddd", paddingTop: "15px" }}>
         <Row
@@ -98,7 +97,7 @@ const ShopFilter: React.FC<ShopFilterProps> = ({ setFilters }) => {
           style={{ borderBottom: "1px solid #ddd", paddingBottom: "10px" }}
         >
           <Col xs={4} style={{ fontWeight: "bold", color: "#555" }}>
-            Product Name
+            {t("Product Name")}
           </Col>
           <Col xs={8}>
             <input
@@ -122,7 +121,7 @@ const ShopFilter: React.FC<ShopFilterProps> = ({ setFilters }) => {
           style={{ borderBottom: "1px solid #ddd", paddingBottom: "10px" }}
         >
           <Col xs={4} style={{ fontWeight: "bold", color: "#555" }}>
-            Price Range
+            {t("Price Range")}
           </Col>
           <Col xs={4}>
             <input
@@ -209,7 +208,7 @@ const ShopFilter: React.FC<ShopFilterProps> = ({ setFilters }) => {
         </Row>
         <Row className="mb-3 align-items-center">
           <Col xs={4} style={{ fontWeight: "bold", color: "#555" }}>
-            Options
+            {t("Options")}
           </Col>
           <Col xs={4}>
             <label style={{ fontSize: "0.9rem", color: "#555" }}>
@@ -259,7 +258,7 @@ const ShopFilter: React.FC<ShopFilterProps> = ({ setFilters }) => {
           e.currentTarget.style.backgroundColor = "#007bff";
         }}
       >
-        Apply Filters
+        {t("Apply Filters")}
       </button>
     </Container>
   );
