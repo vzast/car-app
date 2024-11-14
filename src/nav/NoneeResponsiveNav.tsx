@@ -68,7 +68,7 @@ const NoneResponsiveNav = () => {
       <NavGroup>
         <img
           style={{ width: "120px", pointerEvents: "none" }}
-          src="public/TOTALTECH Down.png"
+          src="./icons/TOTALTECH Down.png"
           alt="nav-icon"
         />
         <NavElements />

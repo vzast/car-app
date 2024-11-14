@@ -48,7 +48,7 @@ const buttons: Button[] = [
     id: 1,
     name: { en: "Desktop App", ge: "დესკტოპ აპლიკაცია" },
     img: "https://cdn-icons-png.flaticon.com/128/9673/9673566.png",
-    imageUrl: "public/icons/desktop-app.png",
+    imageUrl: "./icons/desktop-app.png",
     description: {
       en: "We provide powerful and user-friendly desktop applications designed to enhance productivity and streamline operations. Our solutions are crafted to fit seamlessly into your existing workflows.",
       ge: "ჩვენ ვუზრუნველყოფთ რომ თქვენი დეკტოპ აპლ;იკაცია იყოს მძლავრი და რაც შეძლება მარტივი რათა გაზარდოს პროდუქტიულობა და ოპოერაციების ხარისხი.",
@@ -58,7 +58,7 @@ const buttons: Button[] = [
     id: 2,
     name: { en: "Web Development", ge: "ვებ განვითარება" },
     img: "https://cdn-icons-png.flaticon.com/128/10276/10276295.png",
-    imageUrl: "public/icons/web-development.png",
+    imageUrl: "./icons/web-development.png",
     description: {
       en: "Our team delivers innovative, scalable, and responsive web solutions tailored to your business goals. From design to deployment, we ensure a seamless experience for both you and your users.",
       ge: "ვებსაიტის შექმნა თქვენს ბიზნესზე მორგებული დიზაინითა და შესაძლებლობებით, იქნება ეს კომპლექსური თუ მარტივი ერთ გვერდიანი მოთხოვნა",
@@ -68,7 +68,7 @@ const buttons: Button[] = [
     id: 3,
     name: { en: "Mobile App", ge: "მობილური აპლიკაცია" },
     img: "https://cdn-icons-png.flaticon.com/128/9662/9662287.png",
-    imageUrl: "public/icons/mobile-app.png",
+    imageUrl: "./icons/mobile-app.png",
     description: {
       en: "We create engaging and reliable mobile applications that enhance your reach and user engagement. Our expertise ensures smooth functionality across platforms, helping your business connect with users on the go.",
       ge: "ჩვენ ვქმნით სანდო და მარტივ მოაბაილ აპლიკაციებს რაც ზრდის პროდუქტიულობასა და მომხმარებლების ჩართულობას",

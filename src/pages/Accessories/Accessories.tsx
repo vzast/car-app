@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ShopFilter from "../../Filter/Index";
 import { useTranslation } from "react-i18next";
 import { useAccessories } from "../../context/useAccessories";
+import { t } from "i18next";
 const ITEMS_PER_PAGE = 6;
 
 const Accessories: React.FC = () => {
@@ -201,7 +202,7 @@ const Accessories: React.FC = () => {
                         transition: "background-color 0.3s ease",
                       }}
                     >
-                      View Details
+                      {t("View Details")}
                     </button>
                   </div>
                 </div>

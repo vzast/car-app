@@ -13,7 +13,7 @@ interface Card {
 const cardData: Card[] = [
   {
     id: 1,
-    title: { en: "Restoran", ge: "რესტორანი" },
+    title: { en: "Restaurant", ge: "რესტორანი" },
     description: {
       en: "We offer advanced security cameras for essential area monitoring and fire protection systems tailored to restaurant environments. From kitchen to dining area, our solutions help safeguard your property, staff, and guests with reliable fire safety measures.",
       ge: "ჩვენ გთავაზობთ მოწინავე უსაფრთხოების კამერებს ძირითადი უბნების მონიტორინგისთვის.ასევე სერვისებში გვაქვს ხანძარსაწინააღმდეგო და საგანგებო რეაგირების სისტემები, რომლებიც მორგებულია რესტორნის გარემოს უნიკალურ საჭიროებებზე. სამზარეულოდან სასადილო ზონებამდე, ჩვენი გადაწყვეტილებები დაგეხმარებათ დაიცვათ თქვენი ქონება, პერსონალი და სტუმრები სანდო ხანძარსაწინააღმდეგო ზომებით.",
@@ -53,7 +53,7 @@ const cardData: Card[] = [
   },
   {
     id: 5,
-    title: { en: "construction site", ge: "მშენებარე შენობები" },
+    title: { en: "Construction Site", ge: "მშენებარე შენობები" },
     description: {
       en: "Our advanced surveillance systems provide continuous monitoring across the entire site. Whether it's tracking construction equipment, monitoring entry points, or overseeing the area, our high-quality cameras offer clear visibility of all activities. Access control is another important aspect. Our systems allow you to manage who enters the site and when. With smart access control solutions, such as cards, biometric records, or secure PIN codes, you can ensure that only authorized personnel are allowed on-site. Our services also include integrated fire protection systems, such as smoke detectors, alarms, and more.",
       ge: "ჩვენი მოწინავე სათვალთვალო სისტემები უზრუნველყოფს უწყვეტ მონიტორინგს მთელ ადგილზე.  იქნება ეს სამშენებლო აღჭურვილობის თვალყურის დევნება, შესვლის პუნქტების მონიტორინგი თუ ტერიტორიის ზედამხედველობა, ჩვენი მაღალი ხარისხის კამერები გაძლევენ ნათელ ხედვას ყველა აქტივობაზე. წვდომის კონტროლი კიდევ ერთი მნიშვნელოვანი ასპექტია. ჩვენი სისტემები საშუალებას გაძლევთ მართოთ ვინ და რა დროს შემოდის ტერიტორიაზე. წვდომის კონტროლის ჭკვიანი გადაწყვეტილებებით, როგორიცაა ბარათები, ბიომეტრიული ჩანაწერი ან უსაფრთხო PIN კოდები, შეგიძლიათ უზრუნველყოთ, რომ მხოლოდ ავტორიზებული პერსონალი დაიშვება ადგილზე ჩვენი სერვისები ასევე მოიცავს ხანძარსაწინააღმდეგო ინტეგრირებულ სისტემებს, როგორიცაა კვამლის დეტექტორები, სიგნალიზაცია და სხვა.",

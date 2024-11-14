@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import styled, { css, keyframes } from "styled-components";
+import { t } from "i18next";
 import i18n from "../multilanguage/i18";
 
 const slideIn = keyframes`
@@ -50,6 +51,7 @@ const Navbar = styled.nav`
 
 const NavIcon = styled.img`
   width: 90px;
+  margin-left: -20px;
 `;
 
 const TogglerButton = styled.button<TogglerButtonProps>`
@@ -142,6 +144,7 @@ const useScrollDirection = () => {
 const ResponsiveNav = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isButtonToggled, setIsButtonToggled] = useState(false);
+  const [currentLang, setCurrentLang] = useState(i18n.language); 
   const scrollDir = useScrollDirection();
 
   const toggleNav = useCallback(() => {
@@ -160,15 +163,18 @@ const ResponsiveNav = () => {
     setIsButtonToggled(false);
   }, []);
 
+  const toggleLanguage = () => {
+    const newLanguage = currentLang === "en" ? "ge" : "en";
+    i18n.changeLanguage(newLanguage);
+    setCurrentLang(newLanguage); 
+  };
+
   useEffect(() => {
     if (!isNavVisible) {
       setIsButtonToggled(false);
     }
   }, [isNavVisible]);
-  const toggleLanguage = () => {
-    const newLanguage = i18n.language === "en" ? "ge" : "en";
-    i18n.changeLanguage(newLanguage);
-  };
+
   return (
     <Navbar
       style={{
@@ -179,16 +185,9 @@ const ResponsiveNav = () => {
             : "0 4px 8px rgba(0, 0, 0, 0.3)",
       }}
     >
-      <button
-        style={{ marginTop: "-8px", cursor: "pointer" }}
-        className={"btn btn-outline-primary"}
-        onClick={toggleLanguage}
-      >
-        {i18n.language === "en" ? "ENG" : "GEO"}
-      </button>
       <NavIcon
         style={{ marginTop: "0px" }}
-        src="public/TOTALTECH Down.png"
+        src="./icons/TOTALTECH Down.png"
         alt="nav-icon"
       />
       <TogglerButton
@@ -199,24 +198,32 @@ const ResponsiveNav = () => {
       >
         {isButtonToggled ? "×" : "☰"}
       </TogglerButton>
+      <button
+        style={{ marginTop: "-8px", cursor: "pointer" }}
+        className={"btn btn-outline-primary"}
+        onClick={toggleLanguage}
+      >
+        {currentLang === "en" ? "ENG" : "GEO"}
+      </button>
       <NavItems isVisible={isNavVisible}>
         <NavItem>
           <NavLink to="/" onClick={handleNavLinkClick}>
-            მთავარი
+            {t("Welcome to React")}
           </NavLink>
         </NavItem>
         <NavItem>
           <NavLink to="/services" onClick={handleNavLinkClick}>
-            სერვისები
+            {t("Services")}
           </NavLink>
         </NavItem>
-        <NavLink to="/accessories" onClick={handleNavLinkClick}>
-          სერვისები
-        </NavLink>
-        <NavItem></NavItem>
+        <NavItem>
+          <NavLink to="/accessories" onClick={handleNavLinkClick}>
+            {t("Shop")}
+          </NavLink>
+        </NavItem>
         <NavItem>
           <NavLink to="/contact" onClick={handleNavLinkClick}>
-            კონტაქტი
+            {t("Contact")}
           </NavLink>
         </NavItem>
       </NavItems>

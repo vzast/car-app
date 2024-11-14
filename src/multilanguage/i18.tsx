@@ -66,6 +66,7 @@ const resources = {
       "Price Range": "Price Range",
       Options: "Options",
       "Apply Filters": "Apply Filters",
+      "View Details": "View Details",
     },
   },
   ge: {
@@ -131,6 +132,7 @@ const resources = {
       "Price Range": "ფასი",
       Options: "ოფცია",
       "Apply Filters": "გაფილტვრა",
+      "View Details": "დეტალების ნახვა",
     },
   },
 };

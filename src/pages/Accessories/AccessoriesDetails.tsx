@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Loader from "./Loader";
-
-
 import { useTranslation } from "react-i18next";
 
 interface Accessory {
@@ -20,6 +18,7 @@ interface Accessory {
 interface CardObject {
   cards: Accessory[];
 }
+
 type AccessoriesType = Record<string, CardObject>;
 
 const fetchAccessories = async (): Promise<AccessoriesType> => {
@@ -44,94 +43,67 @@ const AccessoriesDetails: React.FC = () => {
   const accessory = accessories
     ? accessories[i18n.language]?.cards?.find((item) => item.id === accessoryId)
     : undefined;
-  console.log(accessoryId);
-
 
   if (isLoading) return <Loader />;
-  if (error) return <div>Error loading accessories</div>;
-  if (!accessory) return <div>Accessory not found</div>;
-
- 
-
- 
-
-
+  if (error)
+    return <div className="alert alert-danger">Error loading accessories</div>;
+  if (!accessory)
+    return <div className="alert alert-warning">Accessory not found</div>;
 
   return (
-    <div className="container" style={{ overflow: "hidden" }}>
-      <div className="card p-4">
+    <div className="container my-5">
+      <div className="card shadow-lg border-0 rounded-lg p-4">
         <div className="row">
-          <div className="col-lg-6 col-md-12 col-sm-12 text-center">
-            <img src={accessory.img} />
+          {/* Image Section */}
+          <div className="col-lg-6 col-md-12 col-sm-12 mb-4 text-center">
+            <div className="position-relative">
+              <img
+                src={accessory.img}
+                alt={accessory.name}
+                className="img-fluid rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+              />
+              {/* Optionally: Add zoom or carousel functionality for multiple images */}
+            </div>
           </div>
 
+          {/* Details Section */}
           <div className="col-lg-6 col-md-12">
-            <h4 className="mb-3">{accessory.name}</h4>
-            <p>{accessory.info}</p>
+            <h3 className="mb-3 font-weight-bold">{accessory.name}</h3>
+            <p className="text-muted mb-3">{accessory.info}</p>
             <hr />
-            <table className="table mt-3">
+
+            <div className="d-flex justify-content-between mb-3">
+              <span className="h4 font-weight-bold text-primary">
+                ${Math.round(accessory.price - (accessory.price * 13) / 100)}
+              </span>
+              <span className="text-muted text-decoration-line-through">
+                ${accessory.price}
+              </span>
+            </div>
+
+            <table className="table table-bordered table-striped">
               <tbody>
-                <tr>
-                  <th style={{ backgroundColor: "#0D92F4", color: "white" }}>
-                    Price
-                  </th>
-                  <td>
-                    {Math.round(accessory.price - (accessory.price * 13) / 100)}
-                  </td>
-                </tr>
                 <tr>
                   <th style={{ backgroundColor: "#0D92F4", color: "white" }}>
                     Description
                   </th>
                   <td>{accessory.details}</td>
                 </tr>
-                <tr>
-                  <th style={{ backgroundColor: "#0D92F4", color: "white" }}>
-                    Gallery
-                  </th>
-                  <td>
-                    <div
-                      className="d-flex"
-                      style={{
-                        overflowX: "auto",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                     
-                    </div>
-                  </td>
-                </tr>
               </tbody>
             </table>
-            <div className="text-center mt-4">
-              <button className="btn btn-secondary w-100">Call Now</button>
+
+            <div className="d-flex justify-content-between align-items-center mt-4">
+              <button className="btn btn-primary btn-lg w-100 shadow-lg">
+                <a
+                  href="tel:595850777"
+                  className="text-white text-decoration-none"
+                >
+                  <i className="bi bi-phone"></i> Call Now
+                </a>
+              </button>
             </div>
           </div>
         </div>
-        <hr className="my-4" />
-        <h6>Additional Information</h6>
-        <table className="table mt-3">
-          <tbody>
-            <tr>
-              <th style={{ backgroundColor: "#536493", color: "white" }}>
-                Material
-              </th>
-              <td>{accessory.details} Material</td>
-            </tr>
-            <tr>
-              <th style={{ backgroundColor: "#536493", color: "white" }}>
-                Warranty
-              </th>
-              <td>1 Year Warranty</td>
-            </tr>
-            <tr>
-              <th style={{ backgroundColor: "#536493", color: "white" }}>
-                Category
-              </th>
-              <td>Accessories</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   );
