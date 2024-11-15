@@ -142,18 +142,10 @@
       {
         "id": 18,
         "name": "Theft Detection System Radio Frequency",
-        "info": "Electronic Article Surveillance (EAS) systems play a vital role in retail security by preventing shoplifting and ensuring merchandise integrity. These anti-theft machines are commonly found at the entrances and exits of malls and stores, acting as a first line of defense against theft.",
+        "info": "Electronic Article Surveillance (EAS) systems help prevent shoplifting by securing store entrances and exits. These systems act as a barrier to protect merchandise from theft.",
         "img": "./icons/anti-thief-system.png",
         "development": "Building",
         "details": "An anti-theft machine in malls is a security system designed to prevent shoplifting. These machines, commonly known as Electronic Article Surveillance (EAS) systems, typically consist of sensors at store exits and special tags or labels attached to merchandise. When an item with an active tag passes through the sensors without being deactivated by store staff, an alarm sounds, alerting security personnel. These systems help deter theft and are widely used in retail environments for loss prevention."
-      },
-      {
-        "id": 19,
-        "name": "Theft Detection System Radio Frequency",
-        "info": "Electronic Article Surveillance (EAS) systems play a vital role in retail security by preventing shoplifting and ensuring merchandise integrity. These anti-theft machines are commonly found at the entrances and exits of malls and stores, acting as a first line of defense against theft.",
-        "img": "./icons/system-detections.png",
-        "development": "Building",
-        "details": "An anti-theft machine in malls, known as an Electronic Article Surveillance (EAS) system, is designed to prevent shoplifting and enhance loss prevention in retail environments. These systems consist of sensors placed at store exits and specialized tags attached to merchandise. When a customer purchases an item, store staff deactivate the tag; if someone attempts to exit with an active tag, the sensors trigger an alarm, alerting security personnel. EAS tags come in various types, such as hard tags and soft tags, which use either radio frequency (RF) or electromagnetic (EM) technology. RF tags contain a chip that responds to specific radio frequencies, while EM tags are made of ferromagnetic materials detected by magnetic fields. Both technologies effectively deter theft, contributing to store profitability and creating a sense of security for retailers and customers alike."
       }
     ]
   },
@@ -297,20 +289,11 @@
       },
       {
         "id": 18,
-        "name": "ქურდობის აღმოჩენის სისტემა რადიო სიხშირით",
+        "name": "რადიო სიხშირით დაცვის სისტემა",
         "info": "EAS სისტემები მნიშვნელოვან როლს ასრულებს მაღაზიებში ქურდობის პრევენციასა და საქონლის დაცვაში.",
         "img": "./icons/anti-thief-system.png",
         "development": "მშენებლობა",
-        "details": "ანტიჰეპტური მანქანა სავაჭრო ცენტრებში უსაფრთხოების სისტემა designed to prevent shoplifting. ეს მანქანები, რომელსაც ცნობილია როგორც ელექტრონული სტატიების ზედამხედველობის (EAS) სისტემები, ჩვეულებრივ შედგება სენსორებისგან მაღაზიის გასასვლელებზე და სპეციალური ნიშნულების ან ეტიკეტებისგან საქონელზე. როდესაც აქტიური თეგი სენსორების გავლით გამოდის მაღაზიიდან, მაღაზიის მუშაკების მიერ გახსნის გარეშე, ზარი ირთვება, notifying security personnel. ეს სისტემები ქურდობის აღკვეთისთვის არის იდეალური და ფართოდ გამოიყენება საცალო გარემოებში დაკარგვის პრევენციის მიზნით."
-      },
-      {
-        "id": 19,
-        "name": "ქურდობის აღმოჩენის სისტემა რადიო სიხშირით",
-        "info": "ელექტრონული სტატიების ზედამხედველობის (EAS) სისტემები უზრუნველყოფს მაღაზიებსა და სავაჭრო ცენტრებში ქურდობის აღკვეთას. ეს სისტემები მოიცავს სენსორებსა და თეგებს, რომლებიც მაღაზიის გასასვლელებში ქურდობის გამოვლენას უზრუნველყოფენ.",
-        "img": "./icons/system-detections.png",
-        "development": "მშენებლობა",
-        "details": "ანტიჰეპტური მანქანა სავაჭრო ცენტრებში, ცნობილი როგორც ელექტრონული სტატიების ზედამხედველობის (EAS) სისტემა, designed to prevent shoplifting და გაწვდილი დაკარგვის პრევენციის გაუმჯობესების მიზნით საცალო გარემოებში. ეს სისტემები შედგება სენსორებისგან მაღაზიის გასასვლელებზე და სპეციალური ნიშნულებისგან საქონელზე. როდესაც მომხმარებელი შეიძენს ნივთს, მაღაზიის მუშაკები რედაქტირებენ თეგს; თუ ვინმე ცდილობს გამოსვლა აქტიური თეგით, სენსორები სიგნალს ასხლიანებს, notifying security personnel. EAS თეგები მრავალი ტიპის არსებობენ, როგორიცაა მყარი თეგები და რბილი თეგები, რომლებიც იყენებენ რადიო სიხშირეს (RF) ან ელექტრომაგნიტური (EM) ტექნოლოგიას. RF თეგები შეიცავს ჩიპს, რომელიც კონკრეტულ რადიო სიხშირეებს პასუხობს, ხოლო EM თეგები კეთდება ფერომაგნიტური მასალებისგან, რომლებიც აღმოაჩინება მაგნიტური ველების მიერ. ორივე ტექნოლოგია ეფექტურად აღკვეთ ქურდობას, რაც ხელს უწყობს მაღაზიის სარგებელს და ქმნის უსაფრთხოების გრძნობას საცალო ვაჭრობაში და მომხმარებლებთან."
-      }
+        "details": "ანტიჰეპტური მანქანა სავაჭრო ცენტრებში უსაფრთხოების სისტემა designed to prevent shoplifting. ეს მანქანები, რომელსაც ცნობილია როგორც ელექტრონული სტატიების ზედამხედველობის (EAS) სისტემები, ჩვეულებრივ შედგება სენსორებისგან მაღაზიის გასასვლელებზე და სპეციალური ნიშნულების ან ეტიკეტებისგან საქონელზე. როდესაც აქტიური თეგი სენსორების გავლით გამოდის მაღაზიიდან, მაღაზიის მუშაკების მიერ გახსნის გარეშე, ზარი ირთვება, notifying security personnel. ეს სისტემები ქურდობის აღკვეთისთვის არის იდეალური და ფართოდ გამოიყენება საცალო გარემოებში დაკარგვის პრევენციის მიზნით."      }
     ]
   }
 }
